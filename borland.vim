@@ -9,7 +9,6 @@ set fillchars+=vert:║
 
 let g:colors_name = "borland"
 
-hi Boolean      guifg=#dca3a3
 hi Normal		guifg=#ffff55	guibg=#0000aa
 hi Comment		guifg=#aaaaaa					gui=none
 hi Constant		guifg=#55ff55
