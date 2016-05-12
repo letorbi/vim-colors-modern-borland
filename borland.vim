@@ -7,7 +7,7 @@ if exists("syntax_on")
 endif
 set fillchars+=vert:║
 
-let g:colors_name = "borland3"
+let g:colors_name = "borland"
 
 hi Boolean      guifg=#dca3a3
 hi Normal		guifg=#ffff55	guibg=#0000aa
