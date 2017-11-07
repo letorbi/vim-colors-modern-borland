@@ -72,12 +72,17 @@ endf
 " INFO Vim default highlight groups
 
 " ColorColumn   used for the columns set with 'colorcolumn'
+call s:setGroup("ColorColumn", s:none, s:darkscroll, s:none)
 " Conceal       placeholder characters substituted for concealed text (see 'conceallevel')
+call s:linkGroup("Conceal", "Folded")
 " Cursor        the character under the cursor (default: normal colours reversed)
+call s:setGroup("Cursor", s:darkblue, s:lightyellow, s:none)
 " CursorIM      like Cursor, but used when in IME mode |CursorIM|
+call s:linkGroup("CursorIM", "Cursor")
 " CursorColumn  the screen column that the cursor is in when 'cursorcolumn' is set
+call s:linkGroup("CursorColumn", "ColorColumn")
 " CursorLine    the screen line that the cursor is in when 'cursorline' is set
-call s:setGroup("CursorLine", s:darkblue, s:darkcyan, s:none)
+call s:linkGroup("CursorLine", "ColorColumn")
 " Directory     directory names (and other special names in listings)
 call s:linkGroup("Directory", "Normal")
 " DiffAdd       diff mode: Added line |diff.txt|
@@ -85,17 +90,24 @@ call s:linkGroup("Directory", "Normal")
 " DiffDelete    diff mode: Deleted line |diff.txt|
 " DiffText      diff mode: Changed text within a changed line |diff.txt|
 " EndOfBuffer   filler lines (~) after the last line in the buffer.  By default, this is highlighted like |hl-NonText|.
+call s:linkGroup("EndOfBuffer", "NonText")
 " ErrorMsg      error messages on the command line
 call s:setGroup("ErrorMsg", s:lightyellow, s:darkred, s:none)
 " VertSplit     the column separating vertically split windows
+call s:linkGroup("VertSplit", "ModeMsg")
 " Folded        line used for closed folds
+call s:setGroup("Folded", s:darkblack, s:darkcyan, s:none)
 " FoldColumn    'foldcolumn'
+call s:linkGroup("FoldColumn", "Folded")
 " SignColumn    column where |signs| are displayed
+call s:linkGroup("SignColumn", "LineNr")
 " IncSearch     'incsearch' highlighting; also used for the text replaced with ":s///c"
 " LineNr        Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-call s:linkGroup("LineNr", "NonText")
+call s:setGroup("LineNr", s:darkcyan, s:none, s:none)
 " CursorLineNr  Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+call s:linkGroup("CursorLineNr", "LineNr")
 " MatchParen    The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+call s:setGroup("MatchParen", s:none, s:darkcyan, s:none)
 " ModeMsg       'showmode' message (e.g., "-- INSERT --")
 call s:setGroup("ModeMsg", s:lightwhite, s:none, s:none)
 " MoreMsg       |more-prompt|
@@ -113,9 +125,11 @@ call s:setGroup("PmenuSbar", s:darkscroll, s:lightscroll, s:none)
 " PmenuThumb    Popup menu: Thumb of the scrollbar.
 call s:setGroup("PmenuThumb", s:lightscroll, s:darkscroll, s:none)
 " Question      |hit-enter| prompt and yes/no questions
+call s:linkGroup("Question", "ModeMsg")
 " QuickFixLine  Current |quickfix| item in the quickfix window.
 " Search        Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 " SpecialKey    Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'.  Generally: text that is displayed differently from what it really is.
+call s:setGroup("SpecialKey", s:lightcyan, s:none, s:none)
 " SpellBad      Word that is not recognized by the spellchecker. |spell| This will be combined with the highlighting used otherwise.
 " SpellCap      Word that should start with a capital. |spell| This will be combined with the highlighting used otherwise.
 " SpellLocal    Word that is recognized by the spellchecker as one that is used in another region. |spell| This will be combined with the highlighting used otherwise.
@@ -135,14 +149,11 @@ call s:linkGroup("Title", "Normal")
 " Visual        Visual mode selection
 call s:setGroup("Visual", s:darkblue, s:darkwhite, s:none)
 " VisualNOS     Visual mode selection when vim is "Not Owning the Selection".  Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
+call s:setGroup("VisualNOS", s:darkblue, s:lightblack, s:none)
 " WarningMsg    warning messages
 call s:setGroup("WarningMsg", s:lightyellow, s:darkyellow, s:none)
 " WildMenu      current match in 'wildmenu' completion
-
-" INFO Interface related highlight groups
-
-call s:setGroup("VertSplit", s:lightwhite, s:none, s:none)
-" CIf0            TODO what does this mean 
+" CIf0          TODO what does this mean 
 
 " INFO Group descriptions from solarized
 
@@ -192,7 +203,7 @@ call s:setGroup("PreProc", s:lightgreen, s:none, s:none)
 " Repeat          for, do, while, etc.
 call s:linkGroup("Repeat", "Keyword")
 " Special         any special symbol
-call s:linkGroup("Special", "Normal")
+call s:linkGroup("Special", "SpecialKey")
 " SpecialChar     special character in a constant
 call s:linkGroup("SpecialChar", "Constant")
 " SpecialComment  special things inside a comment
