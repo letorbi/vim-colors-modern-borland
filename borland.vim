@@ -80,8 +80,8 @@ call s:setGroup("NormalTransparent", s:lightyellow, s:none, s:none)
 call s:setGroup("ColorColumn", s:none, s:darkscroll, s:none)
 " Conceal       placeholder characters substituted for concealed text (see 'conceallevel')
 call s:linkGroup("Conceal", "Folded")
-" Cursor        the character under the cursor (default: normal colours reversed)
-call s:setGroup("Cursor", s:darkblue, s:lightyellow, s:none)
+" Cursor        the character under the cursor (default: bg and fg reversed)
+call s:setGroup("Cursor", s:none, s:none, s:none)
 " CursorIM      like Cursor, but used when in IME mode |CursorIM|
 call s:linkGroup("CursorIM", "Cursor")
 " CursorColumn  the screen column that the cursor is in when 'cursorcolumn' is set
