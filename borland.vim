@@ -232,7 +232,7 @@ call s:linkGroup("Typedef", "Type")
 " Underlined      text that stands out, HTML links
 call s:linkGroup("Underlined", "NormalTransparent")
 
-" INFO NERDTree colors
+" INFO NERDTree colours
 
 call s:setGroup("NERDTreeDir", s:lightcyan, s:darkblue, s:none)
 call s:linkGroup("NERDTreePart", "NERDTreeDir")
