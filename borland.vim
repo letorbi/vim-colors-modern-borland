@@ -69,6 +69,11 @@ function! s:linkGroup(name, parent)
   exe "hi! def link ".a:name." ".a:parent
 endf
 
+" INFO Helper highlight groups
+
+" NormalTransparent   like Normal, but with transparent background
+call s:setGroup("NormalTransparent", s:lightyellow, s:none, s:none)
+
 " INFO Vim default highlight groups
 
 " ColorColumn   used for the columns set with 'colorcolumn'
@@ -84,7 +89,7 @@ call s:linkGroup("CursorColumn", "ColorColumn")
 " CursorLine    the screen line that the cursor is in when 'cursorline' is set
 call s:linkGroup("CursorLine", "ColorColumn")
 " Directory     directory names (and other special names in listings)
-call s:linkGroup("Directory", "Normal")
+call s:linkGroup("Directory", "NormalTransparent")
 " DiffAdd       diff mode: Added line |diff.txt|
 " DiffChange    diff mode: Changed line |diff.txt|
 " DiffDelete    diff mode: Deleted line |diff.txt|
@@ -145,7 +150,7 @@ call s:linkGroup("TabLineFill", "TabLine")
 " TabLineSel    tab pages line, active tab page label
 call s:linkGroup("TabLineSel", "StatusLine")
 " Title         titles for output from ":set all", ":autocmd" etc; Affects the window counter per tab
-call s:linkGroup("Title", "Normal")
+call s:linkGroup("Title", "NormalTransparent")
 " Visual        Visual mode selection
 call s:setGroup("Visual", s:darkblue, s:darkwhite, s:none)
 " VisualNOS     Visual mode selection when vim is "Not Owning the Selection".  Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
@@ -164,7 +169,7 @@ call s:setGroup("Comment", s:darkwhite, s:none, s:none)
 " Conditional     if, then, else, endif, switch, etc.
 call s:linkGroup("Conditional", "Keyword")
 " Constant        any constant
-call s:linkGroup("Constant", "Normal")
+call s:linkGroup("Constant", "NormalTransparent")
 " Character       a character constant: 'c', '\n'
 call s:linkGroup("Character", "Constant")
 " Debug           debugging statements
@@ -173,17 +178,17 @@ call s:linkGroup("Debug", "Statement")
 call s:linkGroup("Define", "PreProc")
 " Delimiter       character that needs attention
 " Error           any erroneous construct
-call s:linkGroup("Error", "Normal")
+call s:linkGroup("Error", "NormalTransparent")
 " Exception       try, catch, throw
 call s:linkGroup("Exception", "Keyword")
 " Float           a floating point constant: 2.3e10
 call s:linkGroup("Float", "Constant")
 " Function        function name (also: methods for classes)
-call s:linkGroup("Function", "Normal")
+call s:linkGroup("Function", "NormalTransparent")
 " Identifier      any variable name
-call s:linkGroup("Identifier", "Normal")
+call s:linkGroup("Identifier", "NormalTransparent")
 " Ignore          left blank, hidden  |hl-Ignore|
-call s:linkGroup("Ignore", "Normal")
+call s:linkGroup("Ignore", "NormalTransparent")
 " Include         preprocessor #include
 call s:linkGroup("Include", "PreProc")
 " Keyword         any other keyword
@@ -195,7 +200,7 @@ call s:linkGroup("Macro", "PreProc")
 " Number          a number constant: 234, 0xff
 call s:linkGroup("Number", "Constant")
 " Operator        "sizeof", "+", "*", etc.
-call s:linkGroup("Operator", "Normal")
+call s:linkGroup("Operator", "NormalTransparent")
 " PreCondit       preprocessor #if, #else, #endif, etc.
 call s:linkGroup("PreCondit", "PreProc")
 " PreProc         generic Preprocessor
@@ -217,15 +222,15 @@ call s:linkGroup("String", "Constant")
 " Structure       struct, union, enum, etc.
 call s:linkGroup("Structure", "Keyword")
 " Tag             you can use CTRL-] on this
-call s:linkGroup("Tag", "Normal")
+call s:linkGroup("Tag", "NormalTransparent")
 " Todo            anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 call s:linkGroup("Todo", "SpecialComment")
 " Type            int, long, char, etc.
-call s:linkGroup("Type", "Normal")
+call s:linkGroup("Type", "NormalTransparent")
 " Typedef         A typedef
 call s:linkGroup("Typedef", "Type")
 " Underlined      text that stands out, HTML links
-call s:linkGroup("Underlined", "Normal")
+call s:linkGroup("Underlined", "NormalTransparent")
 
 " INFO NERDTree colors
 
