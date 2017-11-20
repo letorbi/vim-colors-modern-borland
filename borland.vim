@@ -160,77 +160,88 @@ call s:setGroup("WarningMsg", s:lightyellow, s:darkyellow, s:none)
 " WildMenu      current match in 'wildmenu' completion
 " CIf0          TODO what does this mean 
 
-" INFO Group descriptions from solarized
+" INFO Recommended group names for syntax highlighting (:help group-names)
 
-" Boolean         a boolean constant: TRUE, false
-call s:linkGroup("Boolean", "Constant")
-" Comment         any comment
+" Comment	         any comment
 call s:setGroup("Comment", s:darkwhite, s:none, s:none)
-" Conditional     if, then, else, endif, switch, etc.
-call s:linkGroup("Conditional", "Keyword")
-" Constant        any constant
+
+" Constant	       any constant
 call s:linkGroup("Constant", "NormalTransparent")
-" Character       a character constant: 'c', '\n'
+" String           a string constant: "this is a string"
+call s:linkGroup("String", "Constant")
+" Character        a character constant: 'c', '\n'
 call s:linkGroup("Character", "Constant")
-" Debug           debugging statements
-call s:linkGroup("Debug", "Statement")
-" Define          preprocessor #define
-call s:linkGroup("Define", "PreProc")
-" Delimiter       character that needs attention
-" Error           any erroneous construct
-call s:linkGroup("Error", "NormalTransparent")
-" Exception       try, catch, throw
-call s:linkGroup("Exception", "Keyword")
+" Number           a number constant: 234, 0xff
+call s:linkGroup("Number", "Constant")
+" Boolean          a boolean constant: TRUE, false
+call s:linkGroup("Boolean", "Constant")
 " Float           a floating point constant: 2.3e10
 call s:linkGroup("Float", "Constant")
-" Function        function name (also: methods for classes)
-call s:linkGroup("Function", "NormalTransparent")
+
 " Identifier      any variable name
 call s:linkGroup("Identifier", "NormalTransparent")
-" Ignore          left blank, hidden  |hl-Ignore|
-call s:linkGroup("Ignore", "NormalTransparent")
-" Include         preprocessor #include
-call s:linkGroup("Include", "PreProc")
-" Keyword         any other keyword
-call s:linkGroup("Keyword", "Statement")
-" Label           case, default, etc.
-call s:linkGroup("Label", "Keyword")
-" Macro           same as Define
-call s:linkGroup("Macro", "PreProc")
-" Number          a number constant: 234, 0xff
-call s:linkGroup("Number", "Constant")
-" Operator        "sizeof", "+", "*", etc.
-call s:linkGroup("Operator", "NormalTransparent")
-" PreCondit       preprocessor #if, #else, #endif, etc.
-call s:linkGroup("PreCondit", "PreProc")
-" PreProc         generic Preprocessor
-call s:setGroup("PreProc", s:lightgreen, s:none, s:none)
-" Repeat          for, do, while, etc.
-call s:linkGroup("Repeat", "Keyword")
-" Special         any special symbol
-call s:linkGroup("Special", "SpecialKey")
-" SpecialChar     special character in a constant
-call s:linkGroup("SpecialChar", "Constant")
-" SpecialComment  special things inside a comment
-call s:linkGroup("SpecialComment", "Comment")
+" Function        function name (also: methods for classes)
+call s:linkGroup("Function", "NormalTransparent")
+
 " Statement       any statement
 call s:setGroup("Statement", s:lightwhite, s:none, s:none)
-" StorageClass    static, register, volatile, etc.
-call s:linkGroup("StorageClass", "Keyword")
-" String          a string constant: "this is a string"
-call s:linkGroup("String", "Constant")
-" Structure       struct, union, enum, etc.
-call s:linkGroup("Structure", "Keyword")
-" Tag             you can use CTRL-] on this
-call s:linkGroup("Tag", "NormalTransparent")
-" Todo            anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-call s:linkGroup("Todo", "SpecialComment")
+" Operator        "sizeof", "+", "*", etc.
+call s:linkGroup("Operator", "Statement")
+" Keyword         any other keyword
+call s:linkGroup("Keyword", "Statement")
+" Conditional     if, then, else, endif, switch, etc.
+call s:linkGroup("Conditional", "Keyword")
+" Repeat          for, do, while, etc.
+call s:linkGroup("Repeat", "Keyword")
+" Label           case, default, etc.
+call s:linkGroup("Label", "Keyword")
+" Exception       try, catch, throw
+call s:linkGroup("Exception", "Keyword")
+
 " Type            int, long, char, etc.
-call s:linkGroup("Type", "NormalTransparent")
-" Typedef         A typedef
+call s:setGroup("Type", s:lightwhite, s:none, s:none)
+" StorageClass    static, register, volatile, etc.
+call s:linkGroup("StorageClass", "Type")
+" Structure       struct, union, enum, etc.
+call s:linkGroup("Structure", "Type")
+" Typedef         a typedef
 call s:linkGroup("Typedef", "Type")
+
+" PreProc         generic Preprocessor
+call s:setGroup("PreProc", s:lightgreen, s:none, s:none)
+" Include         preprocessor #include
+call s:linkGroup("Include", "PreProc")
+" Define          preprocessor #define
+call s:linkGroup("Define", "PreProc")
+" Macro           same as Define
+call s:linkGroup("Macro", "PreProc")
+" PreCondit       preprocessor #if, #else, #endif, etc.
+call s:linkGroup("PreCondit", "PreProc")
+
+" Special         any special symbol
+call s:setGroup("Special", s:lightcyan, s:none, s:none)
+" SpecialChar     special character in a constant
+call s:linkGroup("SpecialChar", "Special")
+" Tag             you can use CTRL-] on this
+call s:linkGroup("Tag", "Special")
+" Delimiter       character that needs attention
+call s:linkGroup("Delimiter", "Special")
+" SpecialComment  special things inside a comment
+call s:linkGroup("SpecialComment", "Special")
+" Debug           debugging statements
+call s:linkGroup("Debug", "Special")
+
 " Underlined      text that stands out, HTML links
 call s:linkGroup("Underlined", "NormalTransparent")
+
+" Ignore          left blank, hidden  |hl-Ignore|
+call s:linkGroup("Ignore", "NormalTransparent")
+
+" Error           any erroneous construct
+call s:linkGroup("Error", "NormalTransparent")
+
+" Todo            anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+call s:setGroup("Todo", s:lightred, s:none, s:none)
 
 " INFO NERDTree colours
 
