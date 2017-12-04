@@ -37,6 +37,20 @@ If you don't want to use a plugin-manager at all, you can simply clone the repos
     git clone https://github.com/letorbi/vim-colors-borland /tmp/vim-colors-borland
     cp /tmp/vim-colors-borland/colors/borland.vim ~/.vim/colors/borland.vim
 
+## Font
+
+I recommend to use the font [Perfect DOS VGA 437](https://dafont.com/perfect-dos-vga-437.font) by
+[Zeh Fernando](http://zehfernando.com/) along with the Borland colorscheme. The font emulates the look of the
+classic VGA text mode characters and is - at least in my opinion - quite readable. Just take a look at the screenshots
+above to get your own impression.
+
+If you want to use Perfect DOS VGA 437 with [Gvim](http://www.vim.org/) or [MacVim](https://github.com/macvim-dev/macvim/), just install the font and add the following lines to your config-file:
+
+    if has("gui_running")
+	    set guifont=Perfect\ DOS\ VGA\ 437\ Win\ 12
+	    set noantialias
+    endif
+
 ----
 
 Copyright 2016-2017 Torben Haase [\<https://pixelsvsbytes.com/\>](https://pixelsvsbytes.com/).
