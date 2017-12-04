@@ -44,12 +44,14 @@ I recommend to use the font [Perfect DOS VGA 437](https://dafont.com/perfect-dos
 classic VGA text mode characters and is - at least in my opinion - quite readable. Just take a look at the screenshots
 above to get your own impression.
 
-If you want to use Perfect DOS VGA 437 with [Gvim](http://www.vim.org/) or [MacVim](https://github.com/macvim-dev/macvim/), just install the font and add the following lines to your config-file:
+If you want to use Perfect DOS VGA 437 with GTK-version of Vim (Gvim) or [MacVim](https://github.com/macvim-dev/macvim/), just install the font and add the following lines to your config-file:
 
     if has("gui_running")
 	    set guifont=Perfect\ DOS\ VGA\ 437\ Win\ 12
 	    set noantialias
     endif
+ 
+If you want to use Perfect DOS VGA 437 with the text-version of Vim or [Neovim](https://neovim.io/), there is no way to set the font via the config-file. You will have to change the font of your console instead.
 
 ----
 
