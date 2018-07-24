@@ -12,33 +12,33 @@ Modern Borland offers two style variants:
 The modern style is the default. It has some colours changed slightly to make the code easier to read and to give the
 scheme also a more modern look:
 
-![Vim with Modern Borland modern style](https://github.com/letorbi/vim-colors-borland/raw/master/doc/screenshot_modern.png)
+![Vim with Modern Borland modern style](https://github.com/letorbi/vim-colors-modern-borland/raw/master/doc/screenshot_modern.png)
 
 ### Classic style
 
 The class style can be activated by adding `let g:BorlandStyle = "classic"` to your config file. It uses exactly the
 same colours as the original IDE:
 
-![Vim with Modern Borland classic style](https://github.com/letorbi/vim-colors-borland/raw/master/doc/screenshot_classic.png)
+![Vim with Modern Borland classic style](https://github.com/letorbi/vim-colors-modern-borland/raw/master/doc/screenshot_classic.png)
 
 ## Installation
 
 The Modern Borland colorscheme can be easily installed via a plugin-manager like [Plug](https://github.com/junegunn/vim-plug/)
 or [Vundle](https://github.com/VundleVim/Vundle.vim/). Just add the address of the GitHub repo to your list of plugins:
 
-  * **Plug:** `Plug 'letorbi/vim-colors-borland'`
-  * **Vundle:** `Plugin 'letorbi/vim-colors-borland'`
+  * **Plug:** `Plug 'letorbi/vim-colors-modern-borland'`
+  * **Vundle:** `Plugin 'letorbi/vim-colors-modern-borland'`
 
 Some might want to use Vim's native plugin-management or [Pathogen](https://github.com/tpope/vim-pathogen/) instead. In
 that case you just have to clone the repository into the appropiate path in your Vim config-directory:
 
-    git clone https://github.com/letorbi/vim-colors-borland ~/.vim/pack/github/start/vim-colors-borland
+    git clone https://github.com/letorbi/vim-colors-modern-borland ~/.vim/pack/github/start/vim-colors-modern-borland
 
 If you don't want to use a plugin-manager at all, you can simply clone the repository and copy the file
 *colors/borland.vim* into your Vim config-directory:
 
-    git clone https://github.com/letorbi/vim-colors-borland /tmp/vim-colors-borland
-    cp /tmp/vim-colors-borland/colors/borland.vim ~/.vim/colors/borland.vim
+    git clone https://github.com/letorbi/vim-colors-modern-borland /tmp/vim-colors-modern-borland
+    cp /tmp/vim-colors-modern-borland/colors/borland.vim ~/.vim/colors/borland.vim
 
 ## Font
 
