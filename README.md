@@ -58,4 +58,4 @@ If you want to use Perfect DOS VGA 437 with the text-version of Vim or [Neovim](
 
 ----
 
-Copyright 2016-2017 Torben Haase [\<https://pixelsvsbytes.com/\>](https://pixelsvsbytes.com/).
+Copyright 2016-2019 Torben Haase \<[https://pixelsvsbytes.com](https://pixelsvsbytes.com)>
