@@ -94,6 +94,8 @@ call s:linkGroup("Directory", "NormalTransparent")
 " DiffChange    diff mode: Changed line |diff.txt|
 " DiffDelete    diff mode: Deleted line |diff.txt|
 " DiffText      diff mode: Changed text within a changed line |diff.txt|
+" ExtraWhitespace trailing spaces and tabs (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
+call s:linkGroup("ExtraWhitespace", "ColorColumn")
 " EndOfBuffer   filler lines (~) after the last line in the buffer.  By default, this is highlighted like |hl-NonText|.
 call s:linkGroup("EndOfBuffer", "NonText")
 " ErrorMsg      error messages on the command line
