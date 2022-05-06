@@ -54,12 +54,12 @@ else
   let s:lightscroll = "#006078"
 endif
 
-let s:italic = ",italic"
-let s:bold = ",bold"
-let s:underline = ",underline"
-let s:undercurl = ",undercurl"
-let s:reverse = ",reverse"
-let s:standout = ",standout"
+let s:italic = "italic"
+let s:bold = "bold"
+let s:underline = "underline"
+let s:undercurl = "undercurl"
+let s:reverse = "reverse"
+let s:standout = "standout"
 
 function! s:setGroup(name, foreground, background, style)
   exe "hi! ".a:name." ".s:vmode."fg=".a:foreground." ".s:vmode."bg=".a:background." ".s:vmode."=".a:style
@@ -81,7 +81,7 @@ call s:setGroup("ColorColumn", s:none, s:darkscroll, s:none)
 " Conceal       placeholder characters substituted for concealed text (see 'conceallevel')
 call s:linkGroup("Conceal", "Folded")
 " Cursor        the character under the cursor (default: bg and fg reversed)
-"call s:setGroup("Cursor", s:none, s:none, s:none)
+call s:setGroup("Cursor", s:none, s:none, s:reverse)
 " CursorIM      like Cursor, but used when in IME mode |CursorIM|
 call s:linkGroup("CursorIM", "Cursor")
 " CursorColumn  the screen column that the cursor is in when 'cursorcolumn' is set
