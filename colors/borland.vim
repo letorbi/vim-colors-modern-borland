@@ -62,6 +62,7 @@ let s:reverse = "reverse"
 let s:standout = "standout"
 
 function! s:setGroup(name, foreground, background, style)
+  exe "hi! ".a:name." term=none cterm=none gui=none"
   exe "hi! ".a:name." ".s:vmode."fg=".a:foreground." ".s:vmode."bg=".a:background." ".s:vmode."=".a:style
 endf
 
