@@ -6,7 +6,7 @@ Modern Borland offers two style variants. The *modern style* (default) has some 
 
 | Modern style  | Classic style |
 | ------------- | ------------- |
-| ![Vim with Modern Borland modern style](https://github.com/letorbi/vim-colors-modern-borland/raw/master/doc/screenshot_modern.png)  | ![Vim with Modern Borland classic style](https://github.com/letorbi/vim-colors-modern-borland/raw/master/doc/screenshot_classic.png)  |
+| ![Vim with Modern Borland modern style](https://github.com/letorbi/vim-colors-modern-borland/raw/main/doc/screenshot_modern.png)  | ![Vim with Modern Borland classic style](https://github.com/letorbi/vim-colors-modern-borland/raw/main/doc/screenshot_classic.png)  |
 
 ## Installation
 
