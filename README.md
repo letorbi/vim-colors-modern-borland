@@ -1,6 +1,6 @@
 # Modern Borland colour scheme for Vim
 
-The Modern Borland colour scheme for Vim is a tribute to the classic Turbo Pascal & Turbo C++ IDEs developed by Borland International Inc. in the early 1990'ties. It mimics the look of the interface and the syntax highlighting. Modern Borland is not related to the [Borland colorscheme](https://www.vim.org/scripts/script.php?script_id=92) that often ships with vim.
+The Modern Borland colour scheme for [Vim](https://www.vim.org/) is a tribute to the classic Turbo Pascal & Turbo C++ IDEs developed by Borland International Inc. in the early 1990'ties. It mimics the look of the interface and the syntax highlighting. Modern Borland is not related to the [Borland colorscheme](https://www.vim.org/scripts/script.php?script_id=92) that often ships with Vim.
 
 Modern Borland offers two style variants. The *modern style* (default) has some colours changed slightly to make the code easier to read and to give the scheme also a more modern look. On the other hand the *classic style* uses exactly the same colours as the original IDE. It can be activated by adding `let g:BorlandStyle = "classic"` to your config file.
 
@@ -39,4 +39,4 @@ If you want to use Perfect DOS VGA 437 with the text-version of Vim or [Neovim](
 
 ----
 
-Copyright 2016-2023 Torben Haase \<[https://letorbi.com](https://letorbi.com)>
+Copyright 2016-2024 Torben Haase \<[https://letorbi.com](https://letorbi.com)>
