@@ -191,11 +191,11 @@ call s:linkGroup("Float", "Constant")
 
 " Identifier      any variable name
 call s:linkGroup("Identifier", "NormalTransparent")
-" Function        function name (also: methods for classes)
-call s:linkGroup("Function", "NormalTransparent")
 
 " Statement       any statement
 call s:setGroup("Statement", s:lightwhite, s:none, s:none)
+" Function        function statement
+call s:linkGroup("Function", "Statement")
 " Operator        "sizeof", "+", "*", etc.
 call s:linkGroup("Operator", "Statement")
 " Keyword         any other keyword
