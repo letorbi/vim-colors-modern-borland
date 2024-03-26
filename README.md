@@ -24,6 +24,15 @@ If you don't want to use a plugin-manager at all, you can simply clone the repos
     git clone https://github.com/letorbi/vim-colors-modern-borland /tmp/vim-colors-modern-borland
     cp /tmp/vim-colors-modern-borland/colors/borland.vim ~/.vim/colors/borland.vim
 
+## Options
+
+The colour scheme can be configured by a set of global variables:
+
+| Variable         | Values              | Description                                           |
+|------------------|---------------------|-------------------------------------------------------|
+| `g:BorlandStyle` | `modern`, `classic` | change the colour style (see screenshots above)       |
+| `g:BorlandParen` | `0`, `1`            | (de)activate highlighting of brackets and parenthesis |
+
 ## Font
 
 I recommend to use the font [Perfect DOS VGA 437](https://dafont.com/perfect-dos-vga-437.font) by [Zeh Fernando](http://zehfernando.com/) along with the Modern Borland colour scheme. The font emulates the look of the classic VGA text mode characters and is - at least in my opinion - quite readable. Just take a look at the screenshots above to get your own impression.

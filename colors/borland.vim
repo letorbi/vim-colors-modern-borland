@@ -10,8 +10,16 @@ let g:colors_name = "borland"
 let s:vmode = "gui"
 let s:none = "NONE"
 
+if !exists("g:BorlandParen")
+  let g:BorlandParen = 1
+endif
+
 if !exists("g:BorlandStyle")
   let g:BorlandStyle = "modern"
+endif
+
+if g:BorlandParen != 0
+    autocmd! WinEnter * :if !exists('w:BorlandParenMatchId') | let w:BorlandParenMatchId=matchadd('Paren', '[(){}\[\]]') | endif
 endif
 
 if g:BorlandStyle == "classic"
@@ -200,6 +208,9 @@ call s:linkGroup("Repeat", "Keyword")
 call s:linkGroup("Label", "Keyword")
 " Exception       try, catch, throw
 call s:linkGroup("Exception", "Keyword")
+
+" Parenthesis     as matched by the AutoCmd at the top
+call s:linkGroup("Paren", "Statement")
 
 " Type            int, long, char, etc.
 call s:setGroup("Type", s:lightwhite, s:none, s:none)
