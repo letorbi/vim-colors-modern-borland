@@ -123,7 +123,7 @@ call s:setGroup("LineNr", s:darkcyan, s:none, s:none)
 " CursorLineNr  Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:linkGroup("CursorLineNr", "LineNr")
 " MatchParen    The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-call s:setGroup("MatchParen", s:none, s:darkcyan, s:none)
+call s:setGroup("MatchParen", s:lightcyan, s:none, s:none)
 " ModeMsg       'showmode' message (e.g., "-- INSERT --")
 call s:setGroup("ModeMsg", s:lightwhite, s:none, s:none)
 " MoreMsg       |more-prompt|
