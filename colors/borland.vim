@@ -140,6 +140,10 @@ call s:setGroup("PmenuSel", s:lightwhite, s:darkgreen, s:none)
 call s:setGroup("PmenuSbar", s:darkscroll, s:lightscroll, s:none)
 " PmenuThumb    Popup menu: Thumb of the scrollbar.
 call s:setGroup("PmenuThumb", s:lightscroll, s:darkscroll, s:none)
+" NormalFloat   Floating window: content
+call s:setGroup("NormalFloat", s:darkblack, s:darkcyan, s:none)
+" FloatBorder   Floating window: border
+call s:linkGroup("FloatBorder", "NormalFloat")
 " Question      |hit-enter| prompt and yes/no questions
 call s:linkGroup("Question", "ModeMsg")
 " QuickFixLine  Current |quickfix| item in the quickfix window.
