@@ -173,7 +173,7 @@ call s:setGroup("VisualNOS", s:darkblue, s:lightblack, s:none)
 " WarningMsg    warning messages
 call s:setGroup("WarningMsg", s:lightyellow, s:darkyellow, s:none)
 " WildMenu      current match in 'wildmenu' completion
-" CIf0          TODO what does this mean 
+" CIf0          TODO what does this mean
 
 " INFO Recommended group names for syntax highlighting (:help group-names)
 
@@ -258,10 +258,30 @@ call s:linkGroup("Ignore", "NormalTransparent")
 " Error           any erroneous construct
 call s:linkGroup("Error", "NormalTransparent")
 
-" Todo            anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+" Todo            anything that needs extra attention; mostly the keywords TODO, FIXME and XXX
 call s:setGroup("Todo", s:lightred, s:none, s:none)
 
-" INFO NERDTree colours
+" INFO Neovim diagnostic (https://neovim.io/doc/user/diagnostic.html#diagnostic-highlights)
+
+call s:setGroup("DiagnosticError", s:darkwhite, s:none, s:none)
+call s:setGroup("DiagnosticWarn", s:darkwhite, s:none, s:none)
+call s:setGroup("DiagnosticInfo", s:darkwhite, s:none, s:none)
+call s:setGroup("DiagnosticHint", s:darkwhite, s:none, s:none)
+call s:setGroup("DiagnosticOk", s:darkwhite, s:none, s:none)
+call s:linkGroup("DiagnosticVirtualTextError", "DiagnosticError")
+call s:linkGroup("DiagnosticVirtualTextWarn", "DiagnosticWarn")
+call s:linkGroup("DiagnosticVirtualTextInfo", "DiagnosticInfo")
+call s:linkGroup("DiagnosticVirtualTextHint", "DiagnosticHint")
+call s:linkGroup("DiagnosticVirtualTextOK", "DiagnosticOK")
+
+" INFO vim-lsp
+
+call s:linkGroup("LspErrorVirtualText", "DiagnosticVirtualTextError")
+call s:linkGroup("LspWarningVirtualText", "DiagnosticVirtualTextWarn")
+call s:linkGroup("LspInformationVirtualText", "DiagnosticVirtualTextInfo")
+call s:linkGroup("LspHintVirtualText", "DiagnosticVirtualTextHint")
+
+" INFO NERDTree
 
 call s:setGroup("NERDTreeDir", s:lightcyan, s:darkblue, s:none)
 call s:linkGroup("NERDTreePart", "NERDTreeDir")
