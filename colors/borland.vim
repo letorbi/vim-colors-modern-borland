@@ -312,3 +312,13 @@ call s:setGroup("NERDTreeHelp", s:lightyellow, s:darkblue, s:none)
 call s:linkGroup("NERDTreeHelpKey", "NERDTreeHelp")
 call s:linkGroup("NERDTreeHelpCommand", "NERDTreeHelp")
 call s:linkGroup("NERDTreeHelpTitle", "NERDTreeHelp")
+
+" INFO JavaScript
+
+call s:linkGroup("javaScriptBraces", "Paren")
+call s:linkGroup("javaScriptFunction", "Function")
+call s:linkGroup("javaScriptIdentifier", "Identifier")
+call s:linkGroup("javaScriptMember", "Normal")
+call s:linkGroup("javaScriptNumber", "Number")
+call s:linkGroup("javaScriptNull", "Keyword")
+call s:linkGroup("javaScriptParens", "Paren")
