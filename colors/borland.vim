@@ -24,42 +24,47 @@ endif
 
 if g:BorlandStyle == "classic"
   let s:darkblack = "#000000"
-  let s:darkblue = "#0000a8"
+  let s:darkwhite = "#a8a8a8"
+  let s:darkred = "#a80000"
+  let s:darkorange = "#a85700"
+  let s:darkyellow = "#a8a800"
   let s:darkgreen = "#00a800"
   let s:darkcyan = "#00a8a8"
-  let s:darkred = "#a80000"
+  let s:darkblue = "#0000a8"
   let s:darkmagenta = "#a800a8"
-  let s:darkyellow = "#a85700"
-  let s:darkwhite = "#a8a8a8"
   let s:darkscroll = "#0038a8"
   let s:lightblack = "#575757"
-  let s:lightblue = "#5757ff"
+  let s:lightwhite = "#ffffff"
+  let s:lightred = "#ff5757"
+  let s:lightorange = "#ff5700"
+  let s:lightyellow = "#ffff57"
   let s:lightgreen = "#57ff57"
   let s:lightcyan = "#57ffff"
-  let s:lightred = "#ff5757"
+  let s:lightblue = "#5757ff"
   let s:lightmagenta = "#ff57ff"
-  let s:lightyellow = "#ffff57"
-  let s:lightwhite = "#ffffff"
   let s:lightscroll = "#0070a8"
 else
   let s:darkblack = "#000000"
-  let s:darkblue = "#003078"
+  let s:darkwhite = "#a8a8a8"
+  let s:darkred = "#a80000"
+  let s:darkorange = "#a85700"
+  let s:darkyellow = "#a8a800"
   let s:darkgreen = "#308800"
   let s:darkcyan = "#00a8a8"
-  let s:darkred = "#a80000"
+  let s:darkblue = "#003078"
   let s:darkmagenta = "#a800a8"
-  let s:darkyellow = "#a85700"
-  let s:darkwhite = "#a8a8a8"
   let s:darkscroll = "#004078"
   let s:lightblack = "#575757"
-  let s:lightblue = "#5757ff"
+  let s:lightwhite = "#ffffff"
+  let s:lightred = "#ff5757"
+  let s:lightorange = "#ffa857"
+  let s:lightyellow = "#ffff57"
   let s:lightgreen = "#57ff57"
   let s:lightcyan = "#57ffff"
-  let s:lightred = "#ff5757"
+  let s:lightblue = "#5757ff"
   let s:lightmagenta = "#ff57ff"
-  let s:lightyellow = "#ffff57"
-  let s:lightwhite = "#ffffff"
   let s:lightscroll = "#006078"
+
 endif
 
 let s:italic = "italic"
@@ -256,30 +261,49 @@ call s:linkGroup("Underlined", "NormalTransparent")
 call s:linkGroup("Ignore", "NormalTransparent")
 
 " Error           any erroneous construct
-call s:linkGroup("Error", "NormalTransparent")
+call s:setGroup("Error", s:lightred, s:none, s:none)
 
 " Todo            anything that needs extra attention; mostly the keywords TODO, FIXME and XXX
-call s:setGroup("Todo", s:lightred, s:none, s:none)
+call s:setGroup("Todo", s:lightorange, s:none, s:none)
 
 " INFO Neovim diagnostic (https://neovim.io/doc/user/diagnostic.html#diagnostic-highlights)
 
-call s:setGroup("DiagnosticError", s:darkwhite, s:none, s:none)
-call s:setGroup("DiagnosticWarn", s:darkwhite, s:none, s:none)
-call s:setGroup("DiagnosticInfo", s:darkwhite, s:none, s:none)
-call s:setGroup("DiagnosticHint", s:darkwhite, s:none, s:none)
-call s:setGroup("DiagnosticOk", s:darkwhite, s:none, s:none)
-call s:linkGroup("DiagnosticVirtualTextError", "DiagnosticError")
-call s:linkGroup("DiagnosticVirtualTextWarn", "DiagnosticWarn")
-call s:linkGroup("DiagnosticVirtualTextInfo", "DiagnosticInfo")
-call s:linkGroup("DiagnosticVirtualTextHint", "DiagnosticHint")
-call s:linkGroup("DiagnosticVirtualTextOK", "DiagnosticOK")
+call s:setGroup("DiagnosticError", s:lightred, s:none, s:none)
+call s:setGroup("DiagnosticWarn", s:lightorange, s:none, s:none)
+call s:setGroup("DiagnosticInfo", s:lightyellow, s:none, s:none)
+call s:setGroup("DiagnosticHint", s:lightwhite, s:none, s:none)
+call s:setGroup("DiagnosticOk", s:lightgreen, s:none, s:none)
+call s:setGroup("DiagnosticVirtualTextError", s:darkred, s:none, s:none)
+call s:setGroup("DiagnosticVirtualTextWarn", s:darkorange, s:none, s:none)
+call s:setGroup("DiagnosticVirtualTextInfo", s:darkyellow, s:none, s:none)
+call s:setGroup("DiagnosticVirtualTextHint", s:darkwhite, s:none, s:none)
+call s:setGroup("DiagnosticVirtualTextOk", s:darkgreen, s:none, s:none)
+
+" INFO ale
+
+call s:linkGroup("ALEVirtualTextError", "DiagnosticError")
+call s:linkGroup("ALEVirtualTextWarning", "DiagnosticWarn")
+call s:linkGroup("ALEVirtualTextInfo", "DiagnosticInfo")
+call s:linkGroup("ALEVirtualTextStyleError", "DiagnosticError")
+call s:linkGroup("ALEVirtualTextStyleWarning", "DiagnosticWarn")
+call s:linkGroup("ALEVirtualTextStyleInfo", "DiagnosticInfo")
 
 " INFO vim-lsp
+
+call s:linkGroup("LspErrorText", "DiagnosticError")
+call s:linkGroup("LspWarningText", "DiagnosticWarn")
+call s:linkGroup("LspInformationText", "DiagnosticInfo")
+call s:linkGroup("LspHintText", "DiagnosticHint")
 
 call s:linkGroup("LspErrorVirtualText", "DiagnosticVirtualTextError")
 call s:linkGroup("LspWarningVirtualText", "DiagnosticVirtualTextWarn")
 call s:linkGroup("LspInformationVirtualText", "DiagnosticVirtualTextInfo")
 call s:linkGroup("LspHintVirtualText", "DiagnosticVirtualTextHint")
+
+call s:linkGroup("LspErrorHighlight", "DiagnosticVirtualTextError")
+call s:linkGroup("LspWarningHighlight", "DiagnosticVirtualTextWarn")
+call s:linkGroup("LspInformationHighlight", "DiagnosticVirtualTextInfo")
+call s:linkGroup("LspHintHighlight", "DiagnosticVirtualTextHint")
 
 " INFO NERDTree
 
