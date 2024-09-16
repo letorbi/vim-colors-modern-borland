@@ -262,7 +262,7 @@ call s:linkGroup("Ignore", "NormalTransparent")
 
 " Error           any erroneous construct
 call s:setGroup("Error", s:lightred, s:none, s:none)
-
+/
 " Todo            anything that needs extra attention; mostly the keywords TODO, FIXME and XXX
 call s:setGroup("Todo", s:lightorange, s:none, s:none)
 
@@ -281,12 +281,26 @@ call s:setGroup("DiagnosticVirtualTextOk", s:darkgreen, s:none, s:none)
 
 " INFO ale
 
-call s:linkGroup("ALEVirtualTextError", "DiagnosticError")
-call s:linkGroup("ALEVirtualTextWarning", "DiagnosticWarn")
-call s:linkGroup("ALEVirtualTextInfo", "DiagnosticInfo")
-call s:linkGroup("ALEVirtualTextStyleError", "DiagnosticError")
-call s:linkGroup("ALEVirtualTextStyleWarning", "DiagnosticWarn")
-call s:linkGroup("ALEVirtualTextStyleInfo", "DiagnosticInfo")
+call s:linkGroup("ALEError", "DiagnosticError")
+call s:linkGroup("ALEWarning", "DiagnosticWarn")
+call s:linkGroup("ALEInfo", "DiagnosticInfo")
+call s:linkGroup("ALEStyleError", "DiagnosticError")
+call s:linkGroup("ALEStyleWarning", "DiagnosticWarn")
+
+call s:linkGroup("ALEErrorSign", "ALEError")
+call s:linkGroup("ALEWarningSign", "ALEWarn")
+call s:linkGroup("ALEInfoSign", "ALEInfo")
+call s:linkGroup("ALEStyleErrorSign", "ALEError")
+call s:linkGroup("ALEStyleWarningSign", "ALEWarn")
+
+call s:linkGroup("ALEVirtualTextError", "DiagnosticVirtualTextError")
+call s:linkGroup("ALEVirtualTextWarning", "DiagnosticVirtualTextWarn")
+call s:linkGroup("ALEVirtualTextInfo", "DiagnosticVirtualTextInfo")
+call s:linkGroup("ALEVirtualTextStyleError", "DiagnosticVirtualTextError")
+call s:linkGroup("ALEVirtualTextStyleWarning", "DiagnosticVirtualTextWarn")
+
+call s:linkGroup("ALESignColumnWithErrors, "SignColumn")
+call s:linkGroup("ALESignColumnWithoutErrors, "SignColumn")
 
 " INFO vim-lsp
 
@@ -294,6 +308,7 @@ call s:linkGroup("LspErrorText", "DiagnosticError")
 call s:linkGroup("LspWarningText", "DiagnosticWarn")
 call s:linkGroup("LspInformationText", "DiagnosticInfo")
 call s:linkGroup("LspHintText", "DiagnosticHint")
+call s:linkGroup("LspCodeActionText, "DiagnosticHint")
 
 call s:linkGroup("LspErrorVirtualText", "DiagnosticVirtualTextError")
 call s:linkGroup("LspWarningVirtualText", "DiagnosticVirtualTextWarn")
@@ -304,6 +319,17 @@ call s:linkGroup("LspErrorHighlight", "DiagnosticVirtualTextError")
 call s:linkGroup("LspWarningHighlight", "DiagnosticVirtualTextWarn")
 call s:linkGroup("LspInformationHighlight", "DiagnosticVirtualTextInfo")
 call s:linkGroup("LspHintHighlight", "DiagnosticVirtualTextHint")
+
+call s:linkGroup("lspInlayHintsType", "DiagnosticVirtualTextHint")
+call s:linkGroup("lspInlayHintsParameter", "DiagnosticVirtualTextHint")
+
+call s:linkGroup("lspReference, "MatchParen")
+
+" TODO Find out what these highlight groups are for
+"LspTreeMarkLeaf
+"LspTreeMarkExpanded
+"LspTreeMarkCollapsed
+"LspTreeNode
 
 " INFO NERDTree
 
