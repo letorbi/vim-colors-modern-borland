@@ -1,329 +1,333 @@
+scriptencoding utf-8
+
 set background=dark
 hi clear
-if exists("syntax_on")
+if exists('syntax_on')
   syntax reset
 endif
 set fillchars+=vert:║
 
-let g:colors_name = "borland"
+let g:colors_name = 'borland'
 
-let s:vmode = "gui"
-let s:none = "NONE"
+let s:vmode = 'gui'
+let s:none = 'NONE'
 
-if !exists("g:BorlandParen")
+if !exists('g:BorlandParen')
   let g:BorlandParen = 1
 endif
 
-if !exists("g:BorlandStyle")
-  let g:BorlandStyle = "modern"
+if !exists('g:BorlandStyle')
+  let g:BorlandStyle = 'modern'
 endif
 
 if g:BorlandParen != 0
-    autocmd! WinEnter * :if !exists('w:BorlandParenMatchId') | let w:BorlandParenMatchId=matchadd('Paren', '[(){}\[\]]') | endif
+    augroup modernborland
+        autocmd! WinEnter * :matchadd('Paren', '[(){}\[\]]')
+    augroup END
 endif
 
-if g:BorlandStyle == "classic"
-  let s:darkblack = "#000000"
-  let s:darkwhite = "#a8a8a8"
-  let s:darkred = "#a80000"
-  let s:darkorange = "#a85700"
-  let s:darkyellow = "#a8a800"
-  let s:darkgreen = "#00a800"
-  let s:darkcyan = "#00a8a8"
-  let s:darkblue = "#0000a8"
-  let s:darkmagenta = "#a800a8"
-  let s:darkscroll = "#0038a8"
-  let s:lightblack = "#575757"
-  let s:lightwhite = "#ffffff"
-  let s:lightred = "#ff5757"
-  let s:lightorange = "#ff5700"
-  let s:lightyellow = "#ffff57"
-  let s:lightgreen = "#57ff57"
-  let s:lightcyan = "#57ffff"
-  let s:lightblue = "#5757ff"
-  let s:lightmagenta = "#ff57ff"
-  let s:lightscroll = "#0070a8"
+if g:BorlandStyle ==# 'classic'
+  let s:darkblack = '#000000'
+  let s:darkwhite = '#a8a8a8'
+  let s:darkred = '#a80000'
+  let s:darkorange = '#a85700'
+  let s:darkyellow = '#a8a800'
+  let s:darkgreen = '#00a800'
+  let s:darkcyan = '#00a8a8'
+  let s:darkblue = '#0000a8'
+  let s:darkmagenta = '#a800a8'
+  let s:darkscroll = '#0038a8'
+  let s:lightblack = '#575757'
+  let s:lightwhite = '#ffffff'
+  let s:lightred = '#ff5757'
+  let s:lightorange = '#ff5700'
+  let s:lightyellow = '#ffff57'
+  let s:lightgreen = '#57ff57'
+  let s:lightcyan = '#57ffff'
+  let s:lightblue = '#5757ff'
+  let s:lightmagenta = '#ff57ff'
+  let s:lightscroll = '#0070a8'
 else
-  let s:darkblack = "#000000"
-  let s:darkwhite = "#a8a8a8"
-  let s:darkred = "#a80000"
-  let s:darkorange = "#a85700"
-  let s:darkyellow = "#a8a800"
-  let s:darkgreen = "#308800"
-  let s:darkcyan = "#00a8a8"
-  let s:darkblue = "#003078"
-  let s:darkmagenta = "#a800a8"
-  let s:darkscroll = "#004078"
-  let s:lightblack = "#575757"
-  let s:lightwhite = "#ffffff"
-  let s:lightred = "#ff5757"
-  let s:lightorange = "#ffa857"
-  let s:lightyellow = "#ffff57"
-  let s:lightgreen = "#57ff57"
-  let s:lightcyan = "#57ffff"
-  let s:lightblue = "#5757ff"
-  let s:lightmagenta = "#ff57ff"
-  let s:lightscroll = "#006078"
+  let s:darkblack = '#000000'
+  let s:darkwhite = '#a8a8a8'
+  let s:darkred = '#a80000'
+  let s:darkorange = '#a85700'
+  let s:darkyellow = '#a8a800'
+  let s:darkgreen = '#308800'
+  let s:darkcyan = '#00a8a8'
+  let s:darkblue = '#003078'
+  let s:darkmagenta = '#a800a8'
+  let s:darkscroll = '#004078'
+  let s:lightblack = '#575757'
+  let s:lightwhite = '#ffffff'
+  let s:lightred = '#ff5757'
+  let s:lightorange = '#ffa857'
+  let s:lightyellow = '#ffff57'
+  let s:lightgreen = '#57ff57'
+  let s:lightcyan = '#57ffff'
+  let s:lightblue = '#5757ff'
+  let s:lightmagenta = '#ff57ff'
+  let s:lightscroll = '#006078'
 
 endif
 
-let s:italic = "italic"
-let s:bold = "bold"
-let s:underline = "underline"
-let s:undercurl = "undercurl"
-let s:reverse = "reverse"
-let s:standout = "standout"
+let s:italic = 'italic'
+let s:bold = 'bold'
+let s:underline = 'underline'
+let s:undercurl = 'undercurl'
+let s:reverse = 'reverse'
+let s:standout = 'standout'
 
 function! s:setGroup(name, foreground, background, style)
-  exe "hi! ".a:name." term=none cterm=none gui=none"
-  exe "hi! ".a:name." ".s:vmode."fg=".a:foreground." ".s:vmode."bg=".a:background." ".s:vmode."=".a:style
+  exe 'hi! '.a:name.' term=none cterm=none gui=none'
+  exe 'hi! '.a:name.' '.s:vmode.'fg='.a:foreground.' '.s:vmode.'bg='.a:background.' '.s:vmode.'='.a:style
 endf
 
 function! s:linkGroup(name, parent)
-  exe "hi! def link ".a:name." ".a:parent
+  exe 'hi! def link '.a:name.' '.a:parent
 endf
 
 " INFO Helper highlight groups
 
 " NormalTransparent   like Normal, but with transparent background
-call s:setGroup("NormalTransparent", s:lightyellow, s:none, s:none)
+call s:setGroup('NormalTransparent', s:lightyellow, s:none, s:none)
 
 " INFO Vim default highlight groups
 
 " ColorColumn   used for the columns set with 'colorcolumn'
-call s:setGroup("ColorColumn", s:none, s:darkscroll, s:none)
+call s:setGroup('ColorColumn', s:none, s:darkscroll, s:none)
 " Conceal       placeholder characters substituted for concealed text (see 'conceallevel')
-call s:linkGroup("Conceal", "Folded")
+call s:linkGroup('Conceal', 'Folded')
 " Cursor        the character under the cursor (default: bg and fg reversed)
-call s:setGroup("Cursor", s:none, s:none, s:reverse)
+call s:setGroup('Cursor', s:none, s:none, s:reverse)
 " CursorIM      like Cursor, but used when in IME mode |CursorIM|
-call s:linkGroup("CursorIM", "Cursor")
+call s:linkGroup('CursorIM', 'Cursor')
 " CursorColumn  the screen column that the cursor is in when 'cursorcolumn' is set
-call s:linkGroup("CursorColumn", "ColorColumn")
+call s:linkGroup('CursorColumn', 'ColorColumn')
 " CursorLine    the screen line that the cursor is in when 'cursorline' is set
-call s:linkGroup("CursorLine", "ColorColumn")
+call s:linkGroup('CursorLine', 'ColorColumn')
 " Directory     directory names (and other special names in listings)
-call s:linkGroup("Directory", "NormalTransparent")
+call s:linkGroup('Directory', 'NormalTransparent')
 " DiffAdd       diff mode: Added line |diff.txt|
 " DiffChange    diff mode: Changed line |diff.txt|
 " DiffDelete    diff mode: Deleted line |diff.txt|
 " DiffText      diff mode: Changed text within a changed line |diff.txt|
 " ExtraWhitespace trailing spaces and tabs (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
-call s:linkGroup("ExtraWhitespace", "ColorColumn")
+call s:linkGroup('ExtraWhitespace', 'ColorColumn')
 " EndOfBuffer   filler lines (~) after the last line in the buffer.  By default, this is highlighted like |hl-NonText|.
-call s:linkGroup("EndOfBuffer", "NonText")
+call s:linkGroup('EndOfBuffer', 'NonText')
 " ErrorMsg      error messages on the command line
-call s:setGroup("ErrorMsg", s:lightyellow, s:darkred, s:none)
+call s:setGroup('ErrorMsg', s:lightyellow, s:darkred, s:none)
 " VertSplit     the column separating vertically split windows
-call s:linkGroup("VertSplit", "ModeMsg")
+call s:linkGroup('VertSplit', 'ModeMsg')
 " Folded        line used for closed folds
-call s:setGroup("Folded", s:darkblack, s:darkcyan, s:none)
+call s:setGroup('Folded', s:darkblack, s:darkcyan, s:none)
 " FoldColumn    'foldcolumn'
-call s:linkGroup("FoldColumn", "Folded")
+call s:linkGroup('FoldColumn', 'Folded')
 " SignColumn    column where |signs| are displayed
-call s:linkGroup("SignColumn", "LineNr")
-" IncSearch     'incsearch' highlighting; also used for the text replaced with ":s///c"
-" LineNr        Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-call s:setGroup("LineNr", s:darkcyan, s:none, s:none)
+call s:linkGroup('SignColumn', 'LineNr')
+" IncSearch     'incsearch' highlighting; also used for the text replaced with ':s///c'
+" LineNr        Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
+call s:setGroup('LineNr', s:darkcyan, s:none, s:none)
 " CursorLineNr  Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-call s:linkGroup("CursorLineNr", "LineNr")
+call s:linkGroup('CursorLineNr', 'LineNr')
 " MatchParen    The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-call s:setGroup("MatchParen", s:lightcyan, s:none, s:none)
-" ModeMsg       'showmode' message (e.g., "-- INSERT --")
-call s:setGroup("ModeMsg", s:lightwhite, s:none, s:none)
+call s:setGroup('MatchParen', s:lightcyan, s:none, s:none)
+" ModeMsg       'showmode' message (e.g., '-- INSERT --')
+call s:setGroup('ModeMsg', s:lightwhite, s:none, s:none)
 " MoreMsg       |more-prompt|
-call s:linkGroup("MoreMsg", "ModeMsg")
-" NonText       '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
-call s:setGroup("NonText", s:darkcyan, s:none, s:none)
+call s:linkGroup('MoreMsg', 'ModeMsg')
+" NonText       '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line).
+call s:setGroup('NonText', s:darkcyan, s:none, s:none)
 " Normal        normal text; any text that matches no syntax pattern
-call s:setGroup("Normal", s:lightyellow, s:darkblue, s:none)
+call s:setGroup('Normal', s:lightyellow, s:darkblue, s:none)
 " Pmenu         Popup menu: normal item.
-call s:setGroup("Pmenu", s:darkblack, s:darkcyan, s:none)
+call s:setGroup('Pmenu', s:darkblack, s:darkcyan, s:none)
 " PmenuSel      Popup menu: selected item.
-call s:setGroup("PmenuSel", s:lightwhite, s:darkgreen, s:none)
+call s:setGroup('PmenuSel', s:lightwhite, s:darkgreen, s:none)
 " PmenuSbar     Popup menu: scrollbar.
-call s:setGroup("PmenuSbar", s:darkscroll, s:lightscroll, s:none)
+call s:setGroup('PmenuSbar', s:darkscroll, s:lightscroll, s:none)
 " PmenuThumb    Popup menu: Thumb of the scrollbar.
-call s:setGroup("PmenuThumb", s:lightscroll, s:darkscroll, s:none)
+call s:setGroup('PmenuThumb', s:lightscroll, s:darkscroll, s:none)
 " NormalFloat   Floating window: content
-call s:setGroup("NormalFloat", s:darkblack, s:darkcyan, s:none)
+call s:setGroup('NormalFloat', s:darkblack, s:darkcyan, s:none)
 " FloatBorder   Floating window: border
-call s:linkGroup("FloatBorder", "NormalFloat")
+call s:linkGroup('FloatBorder', 'NormalFloat')
 " Question      |hit-enter| prompt and yes/no questions
-call s:linkGroup("Question", "ModeMsg")
+call s:linkGroup('Question', 'ModeMsg')
 " QuickFixLine  Current |quickfix| item in the quickfix window.
 " Search        Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-" SpecialKey    Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'.  Generally: text that is displayed differently from what it really is.
-call s:setGroup("SpecialKey", s:lightcyan, s:none, s:none)
+" SpecialKey    Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'.  Generally: text that is displayed differently from what it really is.
+call s:setGroup('SpecialKey', s:lightcyan, s:none, s:none)
 " SpellBad      Word that is not recognized by the spellchecker. |spell| This will be combined with the highlighting used otherwise.
 " SpellCap      Word that should start with a capital. |spell| This will be combined with the highlighting used otherwise.
 " SpellLocal    Word that is recognized by the spellchecker as one that is used in another region. |spell| This will be combined with the highlighting used otherwise.
 " SpellRare     Word that is recognized by the spellchecker as one that is hardly ever used. |spell| This will be combined with the highlighting used otherwise.
 " StatusLine    status line of current window
-call s:setGroup("StatusLine", s:darkblack, s:darkgreen, s:none)
-" StatusLineNC  status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-call s:setGroup("StatusLineNC", s:darkblack, s:darkwhite, s:none)
+call s:setGroup('StatusLine', s:darkblack, s:darkgreen, s:none)
+" StatusLineNC  status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
+call s:setGroup('StatusLineNC', s:darkblack, s:darkwhite, s:none)
 " TabLine       tab pages line, not active tab page label
-call s:linkGroup("TabLine", "StatusLineNC")
+call s:linkGroup('TabLine', 'StatusLineNC')
 " TabLineFill   tab pages line, where there are no labels
-call s:linkGroup("TabLineFill", "TabLine")
+call s:linkGroup('TabLineFill', 'TabLine')
 " TabLineSel    tab pages line, active tab page label
-call s:linkGroup("TabLineSel", "StatusLine")
-" Title         titles for output from ":set all", ":autocmd" etc; Affects the window counter per tab
-call s:linkGroup("Title", "NormalTransparent")
+call s:linkGroup('TabLineSel', 'StatusLine')
+" Title         titles for output from ':set all', ':autocmd' etc; Affects the window counter per tab
+call s:linkGroup('Title', 'NormalTransparent')
 " Visual        Visual mode selection
-call s:setGroup("Visual", s:darkblue, s:darkwhite, s:none)
-" VisualNOS     Visual mode selection when vim is "Not Owning the Selection".  Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
-call s:setGroup("VisualNOS", s:darkblue, s:lightblack, s:none)
+call s:setGroup('Visual', s:darkblue, s:darkwhite, s:none)
+" VisualNOS     Visual mode selection when vim is 'Not Owning the Selection'.  Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
+call s:setGroup('VisualNOS', s:darkblue, s:lightblack, s:none)
 " WarningMsg    warning messages
-call s:setGroup("WarningMsg", s:lightyellow, s:darkyellow, s:none)
+call s:setGroup('WarningMsg', s:lightyellow, s:darkyellow, s:none)
 " WildMenu      current match in 'wildmenu' completion
 " CIf0          TODO what does this mean
 
 " INFO Recommended group names for syntax highlighting (:help group-names)
 
 " Comment	         any comment
-call s:setGroup("Comment", s:darkwhite, s:none, s:none)
+call s:setGroup('Comment', s:darkwhite, s:none, s:none)
 
 " Constant	       any constant
-call s:linkGroup("Constant", "NormalTransparent")
-" String           a string constant: "this is a string"
-call s:linkGroup("String", "Constant")
+call s:linkGroup('Constant', 'NormalTransparent')
+" String           a string constant: 'this is a string'
+call s:linkGroup('String', 'Constant')
 " Character        a character constant: 'c', '\n'
-call s:linkGroup("Character", "Constant")
+call s:linkGroup('Character', 'Constant')
 " Number           a number constant: 234, 0xff
-call s:linkGroup("Number", "Constant")
+call s:linkGroup('Number', 'Constant')
 " Boolean          a boolean constant: TRUE, false
-call s:linkGroup("Boolean", "Constant")
+call s:linkGroup('Boolean', 'Constant')
 " Float           a floating point constant: 2.3e10
-call s:linkGroup("Float", "Constant")
+call s:linkGroup('Float', 'Constant')
 
 " Identifier      any variable name
-call s:linkGroup("Identifier", "NormalTransparent")
+call s:linkGroup('Identifier', 'NormalTransparent')
 
 " Statement       any statement
-call s:setGroup("Statement", s:lightwhite, s:none, s:none)
+call s:setGroup('Statement', s:lightwhite, s:none, s:none)
 " Function        function statement
-call s:linkGroup("Function", "Statement")
-" Operator        "sizeof", "+", "*", etc.
-call s:linkGroup("Operator", "Statement")
+call s:linkGroup('Function', 'Statement')
+" Operator        'sizeof', '+', '*', etc.
+call s:linkGroup('Operator', 'Statement')
 " Keyword         any other keyword
-call s:linkGroup("Keyword", "Statement")
+call s:linkGroup('Keyword', 'Statement')
 " Conditional     if, then, else, endif, switch, etc.
-call s:linkGroup("Conditional", "Keyword")
+call s:linkGroup('Conditional', 'Keyword')
 " Repeat          for, do, while, etc.
-call s:linkGroup("Repeat", "Keyword")
+call s:linkGroup('Repeat', 'Keyword')
 " Label           case, default, etc.
-call s:linkGroup("Label", "Keyword")
+call s:linkGroup('Label', 'Keyword')
 " Exception       try, catch, throw
-call s:linkGroup("Exception", "Keyword")
+call s:linkGroup('Exception', 'Keyword')
 
 " Parenthesis     as matched by the AutoCmd at the top
-call s:linkGroup("Paren", "Statement")
+call s:linkGroup('Paren', 'Statement')
 
 " Type            int, long, char, etc.
-call s:setGroup("Type", s:lightwhite, s:none, s:none)
+call s:setGroup('Type', s:lightwhite, s:none, s:none)
 " StorageClass    static, register, volatile, etc.
-call s:linkGroup("StorageClass", "Type")
+call s:linkGroup('StorageClass', 'Type')
 " Structure       struct, union, enum, etc.
-call s:linkGroup("Structure", "Type")
+call s:linkGroup('Structure', 'Type')
 " Typedef         a typedef
-call s:linkGroup("Typedef", "Type")
+call s:linkGroup('Typedef', 'Type')
 
 " PreProc         generic Preprocessor
-call s:setGroup("PreProc", s:lightgreen, s:none, s:none)
+call s:setGroup('PreProc', s:lightgreen, s:none, s:none)
 " Include         preprocessor #include
-call s:linkGroup("Include", "PreProc")
+call s:linkGroup('Include', 'PreProc')
 " Define          preprocessor #define
-call s:linkGroup("Define", "PreProc")
+call s:linkGroup('Define', 'PreProc')
 " Macro           same as Define
-call s:linkGroup("Macro", "PreProc")
+call s:linkGroup('Macro', 'PreProc')
 " PreCondit       preprocessor #if, #else, #endif, etc.
-call s:linkGroup("PreCondit", "PreProc")
+call s:linkGroup('PreCondit', 'PreProc')
 
 " Special         any special symbol
-call s:setGroup("Special", s:lightcyan, s:none, s:none)
+call s:setGroup('Special', s:lightcyan, s:none, s:none)
 " SpecialChar     special character in a constant
-call s:linkGroup("SpecialChar", "Special")
+call s:linkGroup('SpecialChar', 'Special')
 " Tag             you can use CTRL-] on this
-call s:linkGroup("Tag", "Special")
+call s:linkGroup('Tag', 'Special')
 " Delimiter       character that needs attention
-call s:linkGroup("Delimiter", "Special")
+call s:linkGroup('Delimiter', 'Special')
 " SpecialComment  special things inside a comment
-call s:linkGroup("SpecialComment", "Special")
+call s:linkGroup('SpecialComment', 'Special')
 " Debug           debugging statements
-call s:linkGroup("Debug", "Special")
+call s:linkGroup('Debug', 'Special')
 
 " Underlined      text that stands out, HTML links
-call s:linkGroup("Underlined", "NormalTransparent")
+call s:linkGroup('Underlined', 'NormalTransparent')
 
 " Ignore          left blank, hidden  |hl-Ignore|
-call s:linkGroup("Ignore", "NormalTransparent")
+call s:linkGroup('Ignore', 'NormalTransparent')
 
 " Error           any erroneous construct
-call s:setGroup("Error", s:lightred, s:none, s:none)
-/
+call s:setGroup('Error', s:lightred, s:none, s:none)
+
 " Todo            anything that needs extra attention; mostly the keywords TODO, FIXME and XXX
-call s:setGroup("Todo", s:lightorange, s:none, s:none)
+call s:setGroup('Todo', s:lightorange, s:none, s:none)
 
 " INFO Neovim diagnostic (https://neovim.io/doc/user/diagnostic.html#diagnostic-highlights)
 
-call s:setGroup("DiagnosticError", s:lightred, s:none, s:none)
-call s:setGroup("DiagnosticWarn", s:lightorange, s:none, s:none)
-call s:setGroup("DiagnosticInfo", s:lightyellow, s:none, s:none)
-call s:setGroup("DiagnosticHint", s:lightwhite, s:none, s:none)
-call s:setGroup("DiagnosticOk", s:lightgreen, s:none, s:none)
-call s:setGroup("DiagnosticVirtualTextError", s:darkred, s:none, s:none)
-call s:setGroup("DiagnosticVirtualTextWarn", s:darkorange, s:none, s:none)
-call s:setGroup("DiagnosticVirtualTextInfo", s:darkyellow, s:none, s:none)
-call s:setGroup("DiagnosticVirtualTextHint", s:darkwhite, s:none, s:none)
-call s:setGroup("DiagnosticVirtualTextOk", s:darkgreen, s:none, s:none)
+call s:setGroup('DiagnosticError', s:lightred, s:none, s:none)
+call s:setGroup('DiagnosticWarn', s:lightorange, s:none, s:none)
+call s:setGroup('DiagnosticInfo', s:lightyellow, s:none, s:none)
+call s:setGroup('DiagnosticHint', s:lightwhite, s:none, s:none)
+call s:setGroup('DiagnosticOk', s:lightgreen, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextError', s:darkred, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextWarn', s:darkorange, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextInfo', s:darkyellow, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextHint', s:darkwhite, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextOk', s:darkgreen, s:none, s:none)
 
 " INFO ale
 
-call s:linkGroup("ALEError", "DiagnosticError")
-call s:linkGroup("ALEWarning", "DiagnosticWarn")
-call s:linkGroup("ALEInfo", "DiagnosticInfo")
-call s:linkGroup("ALEStyleError", "DiagnosticError")
-call s:linkGroup("ALEStyleWarning", "DiagnosticWarn")
+call s:linkGroup('ALEError', 'DiagnosticError')
+call s:linkGroup('ALEWarning', 'DiagnosticWarn')
+call s:linkGroup('ALEInfo', 'DiagnosticInfo')
+call s:linkGroup('ALEStyleError', 'DiagnosticError')
+call s:linkGroup('ALEStyleWarning', 'DiagnosticWarn')
 
-call s:linkGroup("ALEErrorSign", "ALEError")
-call s:linkGroup("ALEWarningSign", "ALEWarn")
-call s:linkGroup("ALEInfoSign", "ALEInfo")
-call s:linkGroup("ALEStyleErrorSign", "ALEError")
-call s:linkGroup("ALEStyleWarningSign", "ALEWarn")
+call s:linkGroup('ALEErrorSign', 'ALEError')
+call s:linkGroup('ALEWarningSign', 'ALEWarn')
+call s:linkGroup('ALEInfoSign', 'ALEInfo')
+call s:linkGroup('ALEStyleErrorSign', 'ALEError')
+call s:linkGroup('ALEStyleWarningSign', 'ALEWarn')
 
-call s:linkGroup("ALEVirtualTextError", "DiagnosticVirtualTextError")
-call s:linkGroup("ALEVirtualTextWarning", "DiagnosticVirtualTextWarn")
-call s:linkGroup("ALEVirtualTextInfo", "DiagnosticVirtualTextInfo")
-call s:linkGroup("ALEVirtualTextStyleError", "DiagnosticVirtualTextError")
-call s:linkGroup("ALEVirtualTextStyleWarning", "DiagnosticVirtualTextWarn")
+call s:linkGroup('ALEVirtualTextError', 'DiagnosticVirtualTextError')
+call s:linkGroup('ALEVirtualTextWarning', 'DiagnosticVirtualTextWarn')
+call s:linkGroup('ALEVirtualTextInfo', 'DiagnosticVirtualTextInfo')
+call s:linkGroup('ALEVirtualTextStyleError', 'DiagnosticVirtualTextError')
+call s:linkGroup('ALEVirtualTextStyleWarning', 'DiagnosticVirtualTextWarn')
 
-call s:linkGroup("ALESignColumnWithErrors, "SignColumn")
-call s:linkGroup("ALESignColumnWithoutErrors, "SignColumn")
+call s:linkGroup('ALESignColumnWithErrors', 'SignColumn')
+call s:linkGroup('ALESignColumnWithoutErrors', 'SignColumn')
 
 " INFO vim-lsp
 
-call s:linkGroup("LspErrorText", "DiagnosticError")
-call s:linkGroup("LspWarningText", "DiagnosticWarn")
-call s:linkGroup("LspInformationText", "DiagnosticInfo")
-call s:linkGroup("LspHintText", "DiagnosticHint")
-call s:linkGroup("LspCodeActionText, "DiagnosticHint")
+call s:linkGroup('LspErrorText', 'DiagnosticError')
+call s:linkGroup('LspWarningText', 'DiagnosticWarn')
+call s:linkGroup('LspInformationText', 'DiagnosticInfo')
+call s:linkGroup('LspHintText', 'DiagnosticHint')
+call s:linkGroup('LspCodeActionText', 'DiagnosticHint')
 
-call s:linkGroup("LspErrorVirtualText", "DiagnosticVirtualTextError")
-call s:linkGroup("LspWarningVirtualText", "DiagnosticVirtualTextWarn")
-call s:linkGroup("LspInformationVirtualText", "DiagnosticVirtualTextInfo")
-call s:linkGroup("LspHintVirtualText", "DiagnosticVirtualTextHint")
+call s:linkGroup('LspErrorVirtualText', 'DiagnosticVirtualTextError')
+call s:linkGroup('LspWarningVirtualText', 'DiagnosticVirtualTextWarn')
+call s:linkGroup('LspInformationVirtualText', 'DiagnosticVirtualTextInfo')
+call s:linkGroup('LspHintVirtualText', 'DiagnosticVirtualTextHint')
 
-call s:linkGroup("LspErrorHighlight", "DiagnosticVirtualTextError")
-call s:linkGroup("LspWarningHighlight", "DiagnosticVirtualTextWarn")
-call s:linkGroup("LspInformationHighlight", "DiagnosticVirtualTextInfo")
-call s:linkGroup("LspHintHighlight", "DiagnosticVirtualTextHint")
+call s:linkGroup('LspErrorHighlight', 'DiagnosticVirtualTextError')
+call s:linkGroup('LspWarningHighlight', 'DiagnosticVirtualTextWarn')
+call s:linkGroup('LspInformationHighlight', 'DiagnosticVirtualTextInfo')
+call s:linkGroup('LspHintHighlight', 'DiagnosticVirtualTextHint')
 
-call s:linkGroup("lspInlayHintsType", "DiagnosticVirtualTextHint")
-call s:linkGroup("lspInlayHintsParameter", "DiagnosticVirtualTextHint")
+call s:linkGroup('lspInlayHintsType', 'DiagnosticVirtualTextHint')
+call s:linkGroup('lspInlayHintsParameter', 'DiagnosticVirtualTextHint')
 
-call s:linkGroup("lspReference, "MatchParen")
+call s:linkGroup('lspReference', 'MatchParen')
 
 " TODO Find out what these highlight groups are for
 "LspTreeMarkLeaf
@@ -333,42 +337,42 @@ call s:linkGroup("lspReference, "MatchParen")
 
 " INFO NERDTree
 
-call s:setGroup("NERDTreeDir", s:lightcyan, s:darkblue, s:none)
-call s:linkGroup("NERDTreePart", "NERDTreeDir")
-call s:linkGroup("NERDTreePartFile", "NERDTreeDir")
-call s:linkGroup("NERDTreeExecFile", "NERDTreeDir")
-call s:linkGroup("NERDTreeDirSlash", "NERDTreeDir")
-call s:linkGroup("NERDTreeBookmarksHeader", "NERDTreeDir")
-call s:linkGroup("NERDTreeBookmarksLeader", "NERDTreeDir")
-call s:linkGroup("NERDTreeBookmarkName", "NERDTreeDir")
-call s:linkGroup("NERDTreeBookmark", "NERDTreeDir")
-call s:linkGroup("NERDTreeToggleOn", "NERDTreeDir")
-call s:linkGroup("NERDTreeToggleOff", "NERDTreeDir")
-call s:linkGroup("NERDTreeLinkTarget", "NERDTreeDir")
-call s:linkGroup("NERDTreeLinkFile", "NERDTreeDir")
-call s:linkGroup("NERDTreeLinkDir", "NERDTreeDir")
-call s:linkGroup("NERDTreeDir", "NERDTreeDir")
-call s:linkGroup("NERDTreeUp", "NERDTreeDir")
-call s:linkGroup("NERDTreeFile", "NERDTreeDir")
-call s:linkGroup("NERDTreeCWD", "NERDTreeDir")
-call s:linkGroup("NERDTreeOpenable", "NERDTreeDir")
-call s:linkGroup("NERDTreeCloseable", "NERDTreeDir")
-call s:linkGroup("NERDTreeIgnore", "NERDTreeDir")
-call s:linkGroup("NERDTreeRO", "NERDTreeDir")
-call s:linkGroup("NERDTreeFlags", "NERDTreeDir")
-call s:linkGroup("NERDTreeCurrentNode", "NERDTreeDir")
+call s:setGroup('NERDTreeDir', s:lightcyan, s:darkblue, s:none)
+call s:linkGroup('NERDTreePart', 'NERDTreeDir')
+call s:linkGroup('NERDTreePartFile', 'NERDTreeDir')
+call s:linkGroup('NERDTreeExecFile', 'NERDTreeDir')
+call s:linkGroup('NERDTreeDirSlash', 'NERDTreeDir')
+call s:linkGroup('NERDTreeBookmarksHeader', 'NERDTreeDir')
+call s:linkGroup('NERDTreeBookmarksLeader', 'NERDTreeDir')
+call s:linkGroup('NERDTreeBookmarkName', 'NERDTreeDir')
+call s:linkGroup('NERDTreeBookmark', 'NERDTreeDir')
+call s:linkGroup('NERDTreeToggleOn', 'NERDTreeDir')
+call s:linkGroup('NERDTreeToggleOff', 'NERDTreeDir')
+call s:linkGroup('NERDTreeLinkTarget', 'NERDTreeDir')
+call s:linkGroup('NERDTreeLinkFile', 'NERDTreeDir')
+call s:linkGroup('NERDTreeLinkDir', 'NERDTreeDir')
+call s:linkGroup('NERDTreeDir', 'NERDTreeDir')
+call s:linkGroup('NERDTreeUp', 'NERDTreeDir')
+call s:linkGroup('NERDTreeFile', 'NERDTreeDir')
+call s:linkGroup('NERDTreeCWD', 'NERDTreeDir')
+call s:linkGroup('NERDTreeOpenable', 'NERDTreeDir')
+call s:linkGroup('NERDTreeCloseable', 'NERDTreeDir')
+call s:linkGroup('NERDTreeIgnore', 'NERDTreeDir')
+call s:linkGroup('NERDTreeRO', 'NERDTreeDir')
+call s:linkGroup('NERDTreeFlags', 'NERDTreeDir')
+call s:linkGroup('NERDTreeCurrentNode', 'NERDTreeDir')
 
-call s:setGroup("NERDTreeHelp", s:lightyellow, s:darkblue, s:none)
-call s:linkGroup("NERDTreeHelpKey", "NERDTreeHelp")
-call s:linkGroup("NERDTreeHelpCommand", "NERDTreeHelp")
-call s:linkGroup("NERDTreeHelpTitle", "NERDTreeHelp")
+call s:setGroup('NERDTreeHelp', s:lightyellow, s:darkblue, s:none)
+call s:linkGroup('NERDTreeHelpKey', 'NERDTreeHelp')
+call s:linkGroup('NERDTreeHelpCommand', 'NERDTreeHelp')
+call s:linkGroup('NERDTreeHelpTitle', 'NERDTreeHelp')
 
 " INFO JavaScript
 
-call s:linkGroup("javaScriptBraces", "Paren")
-call s:linkGroup("javaScriptFunction", "Function")
-call s:linkGroup("javaScriptIdentifier", "Identifier")
-call s:linkGroup("javaScriptMember", "Normal")
-call s:linkGroup("javaScriptNumber", "Number")
-call s:linkGroup("javaScriptNull", "Keyword")
-call s:linkGroup("javaScriptParens", "Paren")
+call s:linkGroup('javaScriptBraces', 'Paren')
+call s:linkGroup('javaScriptFunction', 'Function')
+call s:linkGroup('javaScriptIdentifier', 'Identifier')
+call s:linkGroup('javaScriptMember', 'Normal')
+call s:linkGroup('javaScriptNumber', 'Number')
+call s:linkGroup('javaScriptNull', 'Keyword')
+call s:linkGroup('javaScriptParens', 'Paren')
