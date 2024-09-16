@@ -22,7 +22,7 @@ endif
 
 if g:BorlandParen != 0
     augroup modernborland
-        autocmd! WinEnter * :matchadd('Paren', '[(){}\[\]]')
+        autocmd! WinEnter * :call matchadd('Paren', '[(){}\[\]]')
     augroup END
 endif
 
