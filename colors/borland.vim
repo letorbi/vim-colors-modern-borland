@@ -89,7 +89,7 @@ endf
 
 " INFO Helper highlight groups
 
-" NormalTransparent   like Normal, but with transparent background
+" NormalTransparent like Normal, but with transparent background
 call s:setGroup('NormalTransparent', s:lightyellow, s:none, s:none)
 
 " INFO Vim default highlight groups
@@ -189,18 +189,16 @@ call s:setGroup('WarningMsg', s:lightyellow, s:darkyellow, s:none)
 " Comment	         any comment
 call s:setGroup('Comment', s:darkwhite, s:none, s:none)
 
-" Constant	       any constant
-call s:linkGroup('Constant', 'NormalTransparent')
 " String           a string constant: 'this is a string'
-call s:linkGroup('String', 'Constant')
+call s:linkGroup('String', 'NormalTransparent')
 " Character        a character constant: 'c', '\n'
-call s:linkGroup('Character', 'Constant')
+call s:linkGroup('Character', 'NormalTransparent')
 " Number           a number constant: 234, 0xff
-call s:linkGroup('Number', 'Constant')
+call s:linkGroup('Number', 'NormalTransparent')
 " Boolean          a boolean constant: TRUE, false
-call s:linkGroup('Boolean', 'Constant')
+call s:linkGroup('Boolean', 'NormalTransparent')
 " Float           a floating point constant: 2.3e10
-call s:linkGroup('Float', 'Constant')
+call s:linkGroup('Float', 'NormalTransparent')
 
 " Identifier      any variable name
 call s:linkGroup('Identifier', 'NormalTransparent')
@@ -257,6 +255,8 @@ call s:linkGroup('Delimiter', 'Special')
 call s:linkGroup('SpecialComment', 'Special')
 " Debug           debugging statements
 call s:linkGroup('Debug', 'Special')
+" Constant	      a named constant
+call s:linkGroup('Constant', 'Special')
 
 " Underlined      text that stands out, HTML links
 call s:linkGroup('Underlined', 'NormalTransparent')
