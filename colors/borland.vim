@@ -188,6 +188,8 @@ call s:setGroup('WarningMsg', s:lightyellow, s:darkyellow, s:none)
 
 " Comment	         any comment
 call s:setGroup('Comment', s:darkwhite, s:none, s:none)
+" SpecialComment  special things inside a comment
+call s:setGroup('SpecialComment', s:lightwhite, s:none, s:none)
 
 " String           a string constant: 'this is a string'
 call s:linkGroup('String', 'NormalTransparent')
@@ -251,8 +253,6 @@ call s:linkGroup('SpecialChar', 'Special')
 call s:linkGroup('Tag', 'Special')
 " Delimiter       character that needs attention
 call s:linkGroup('Delimiter', 'Special')
-" SpecialComment  special things inside a comment
-call s:linkGroup('SpecialComment', 'Special')
 " Debug           debugging statements
 call s:linkGroup('Debug', 'Special')
 " Constant	      a named constant
