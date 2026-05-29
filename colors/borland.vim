@@ -291,11 +291,11 @@ call s:linkGroup('ALEInfo', 'DiagnosticInfo')
 call s:linkGroup('ALEStyleError', 'DiagnosticError')
 call s:linkGroup('ALEStyleWarning', 'DiagnosticWarn')
 
-call s:linkGroup('ALEErrorSign', 'ALEError')
-call s:linkGroup('ALEWarningSign', 'ALEWarn')
-call s:linkGroup('ALEInfoSign', 'ALEInfo')
-call s:linkGroup('ALEStyleErrorSign', 'ALEError')
-call s:linkGroup('ALEStyleWarningSign', 'ALEWarn')
+call s:linkGroup('ALEErrorSign', 'ErrorMsg')
+call s:linkGroup('ALEWarningSign', 'WarningMsg')
+call s:linkGroup('ALEInfoSign', 'Pmenu')
+call s:linkGroup('ALEStyleErrorSign', 'ErrorMsg')
+call s:linkGroup('ALEStyleWarningSign', 'WarningMsg')
 
 call s:linkGroup('ALEVirtualTextError', 'DiagnosticVirtualTextError')
 call s:linkGroup('ALEVirtualTextWarning', 'DiagnosticVirtualTextWarn')
@@ -303,7 +303,7 @@ call s:linkGroup('ALEVirtualTextInfo', 'DiagnosticVirtualTextInfo')
 call s:linkGroup('ALEVirtualTextStyleError', 'DiagnosticVirtualTextError')
 call s:linkGroup('ALEVirtualTextStyleWarning', 'DiagnosticVirtualTextWarn')
 
-call s:linkGroup('ALESignColumnWithErrors', 'SignColumn')
+call s:linkGroup('ALESignColumnWithErrors', 'Pmenu')
 call s:linkGroup('ALESignColumnWithoutErrors', 'SignColumn')
 
 " INFO vim-lsp
