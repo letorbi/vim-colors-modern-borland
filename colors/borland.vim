@@ -9,8 +9,6 @@ set fillchars+=vert:║
 
 let g:colors_name = 'borland'
 
-let s:vmode = 'gui'
-let s:none = 'NONE'
 
 if !exists('g:BorlandParen')
   let g:BorlandParen = 1
@@ -27,60 +25,59 @@ if g:BorlandParen != 0
 endif
 
 if g:BorlandStyle ==# 'classic'
-  let s:darkblack = '#000000'
-  let s:darkwhite = '#a8a8a8'
-  let s:darkred = '#a80000'
-  let s:darkorange = '#a85700'
-  let s:darkyellow = '#a8a800'
-  let s:darkgreen = '#00a800'
-  let s:darkcyan = '#00a8a8'
-  let s:darkblue = '#0000a8'
-  let s:darkmagenta = '#a800a8'
-  let s:darkscroll = '#0038a8'
-  let s:lightblack = '#575757'
-  let s:lightwhite = '#ffffff'
-  let s:lightred = '#ff5757'
-  let s:lightorange = '#ff5700'
-  let s:lightyellow = '#ffff57'
-  let s:lightgreen = '#57ff57'
-  let s:lightcyan = '#57ffff'
-  let s:lightblue = '#5757ff'
-  let s:lightmagenta = '#ff57ff'
-  let s:lightscroll = '#0070a8'
+  let s:darkblack = ['#000000', 'Black']
+  let s:darkwhite = ['#a8a8a8','LightGray']
+  let s:darkred = ['#a80000','DarkRed']
+  let s:darkorange = ['#a85700','DarkYellow']
+  let s:darkyellow = ['#a8a800','DarkYellow']
+  let s:darkgreen = ['#00a800','DarkGreen']
+  let s:darkcyan = ['#00a8a8','DarkCyan']
+  let s:darkblue = ['#0000a8','DarkBlue']
+  let s:darkmagenta = ['#a800a8','DarkMagenta']
+  let s:darkscroll = ['#0038a8','DarkCyan']
+  let s:lightblack = ['#575757','DarkGray']
+  let s:lightwhite = ['#ffffff','White']
+  let s:lightred = ['#ff5757','LightRed']
+  let s:lightorange = ['#ff5700','LightYellow']
+  let s:lightyellow = ['#ffff57','LightYellow']
+  let s:lightgreen = ['#57ff57','LightGreen']
+  let s:lightcyan = ['#57ffff','LightCyan']
+  let s:lightblue = ['#5757ff','LightBlue']
+  let s:lightmagenta = ['#ff57ff','LightMagenta']
+  let s:lightscroll = ['#0070a8','LightCyan']
 else
-  let s:darkblack = '#000000'
-  let s:darkwhite = '#a8a8a8'
-  let s:darkred = '#a80000'
-  let s:darkorange = '#a85700'
-  let s:darkyellow = '#a8a800'
-  let s:darkgreen = '#308800'
-  let s:darkcyan = '#00a8a8'
-  let s:darkblue = '#003078'
-  let s:darkmagenta = '#a800a8'
-  let s:darkscroll = '#004078'
-  let s:lightblack = '#575757'
-  let s:lightwhite = '#ffffff'
-  let s:lightred = '#ff5757'
-  let s:lightorange = '#ffa857'
-  let s:lightyellow = '#ffff57'
-  let s:lightgreen = '#57ff57'
-  let s:lightcyan = '#57ffff'
-  let s:lightblue = '#5757ff'
-  let s:lightmagenta = '#ff57ff'
-  let s:lightscroll = '#006078'
-
+  let s:darkblack = ['#000000','Black']
+  let s:darkwhite = ['#a8a8a8','LightGray']
+  let s:darkred = ['#a80000','DarkRed']
+  let s:darkorange = ['#a85700','DarkYellow']
+  let s:darkyellow = ['#a8a800','DarkYellow']
+  let s:darkgreen = ['#308800','DarkGreen']
+  let s:darkcyan = ['#00a8a8','DarkCyan']
+  let s:darkblue = ['#003078','DarkBlue']
+  let s:darkmagenta = ['#a800a8','DarkMagenta']
+  let s:darkscroll = ['#004078','DarkCyan']
+  let s:lightblack = ['#575757','DarkGray']
+  let s:lightwhite = ['#ffffff','White']
+  let s:lightred = ['#ff5757','LightRed']
+  let s:lightorange = ['#ffa857','LightYellow']
+  let s:lightyellow = ['#ffff57','LightYellow']
+  let s:lightgreen = ['#57ff57','LightGreen']
+  let s:lightcyan = ['#57ffff','LightCyan']
+  let s:lightblue = ['#5757ff','LightBlue']
+  let s:lightmagenta = ['#ff57ff','LightMagenta']
+  let s:lightscroll = ['#006078','LightCyan']
 endif
 
-let s:italic = 'italic'
-let s:bold = 'bold'
-let s:underline = 'underline'
-let s:undercurl = 'undercurl'
-let s:reverse = 'reverse'
-let s:standout = 'standout'
+let s:none = ['NONE', 'NONE']
+let s:italic = ['italic', 'italic']
+let s:bold = ['bold', 'bold']
+let s:undercurl = ['undercurl', 'underline']
+let s:reverse = ['reverse', 'reverse']
 
 function! s:setGroup(name, foreground, background, style)
-  exe 'hi! '.a:name.' term=none cterm=none gui=none'
-  exe 'hi! '.a:name.' '.s:vmode.'fg='.a:foreground.' '.s:vmode.'bg='.a:background.' '.s:vmode.'='.a:style
+  exe 'hi! '.a:name.' guifg='.a:foreground[0].' guibg='.a:background[0].' gui='.a:style[0]
+  exe 'hi! '.a:name.' ctermfg='.a:foreground[1].' ctermbg='.a:background[1].' cterm='.a:style[1]
+  exe 'hi! '.a:name.' term='.a:style[1]
 endf
 
 function! s:linkGroup(name, parent)
