@@ -157,9 +157,13 @@ call s:linkGroup('Question', 'ModeMsg')
 " SpecialKey    Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'.  Generally: text that is displayed differently from what it really is.
 call s:setGroup('SpecialKey', s:none, s:none, s:none, s:lightcyan)
 " SpellBad      Word that is not recognized by the spellchecker. |spell| This will be combined with the highlighting used otherwise.
+call s:setGroup('SpellBad', s:undercurl, s:none, s:none, s:lightred)
 " SpellCap      Word that should start with a capital. |spell| This will be combined with the highlighting used otherwise.
+call s:setGroup('SpellCap', s:undercurl, s:none, s:none, s:lightorange)
 " SpellLocal    Word that is recognized by the spellchecker as one that is used in another region. |spell| This will be combined with the highlighting used otherwise.
+call s:setGroup('SpellLocal', s:undercurl, s:none, s:none, s:lightcyan)
 " SpellRare     Word that is recognized by the spellchecker as one that is hardly ever used. |spell| This will be combined with the highlighting used otherwise.
+call s:setGroup('SpellRare', s:undercurl, s:none, s:none, s:lightgreen)
 " StatusLine    status line of current window
 call s:setGroup('StatusLine', s:none, s:darkblack, s:darkgreen, s:none)
 " StatusLineNC  status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
