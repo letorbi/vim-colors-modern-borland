@@ -75,8 +75,8 @@ let s:undercurl = ['undercurl', 'underline']
 let s:reverse = ['reverse', 'reverse']
 
 function! s:setGroup(name, foreground, background, style)
-  exe 'hi! '.a:name.' guifg='.a:foreground[0].' guibg='.a:background[0].' gui='.a:style[0]
-  exe 'hi! '.a:name.' ctermfg='.a:foreground[1].' ctermbg='.a:background[1].' cterm='.a:style[1]
+  exe 'hi! '.a:name.' guifg='.a:foreground[0].' guibg='.a:background[0].' guicp='.a:foreground[0].' gui='.a:style[0]
+  exe 'hi! '.a:name.' ctermfg='.a:foreground[1].' ctermbg='.a:background[1].' ctermul='.a:foreground[0].' cterm='.a:style[1]
   exe 'hi! '.a:name.' term='.a:style[1]
 endf
 
