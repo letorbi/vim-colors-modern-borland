@@ -74,9 +74,9 @@ let s:bold = ['bold', 'bold']
 let s:undercurl = ['undercurl', 'underline']
 let s:reverse = ['reverse', 'reverse']
 
-function! s:setGroup(name, foreground, background, style)
-  exe 'hi! '.a:name.' guifg='.a:foreground[0].' guibg='.a:background[0].' guicp='.a:foreground[0].' gui='.a:style[0]
-  exe 'hi! '.a:name.' ctermfg='.a:foreground[1].' ctermbg='.a:background[1].' ctermul='.a:foreground[0].' cterm='.a:style[1]
+function! s:setGroup(name, style, foreground, background, special)
+  exe 'hi! '.a:name.' guifg='.a:foreground[0].' guibg='.a:background[0].' guisp='.a:special[0].' gui='.a:style[0]
+  exe 'hi! '.a:name.' ctermfg='.a:foreground[1].' ctermbg='.a:background[1].' ctermul='.a:special[1].' cterm='.a:style[1]
   exe 'hi! '.a:name.' term='.a:style[1]
 endf
 
@@ -87,16 +87,16 @@ endf
 " INFO Helper highlight groups
 
 " NormalTransparent like Normal, but with transparent background
-call s:setGroup('NormalTransparent', s:lightyellow, s:none, s:none)
+call s:setGroup('NormalTransparent', s:none, s:lightyellow, s:none, s:none)
 
 " INFO Vim default highlight groups
 
 " ColorColumn   used for the columns set with 'colorcolumn'
-call s:setGroup('ColorColumn', s:none, s:darkscroll, s:none)
+call s:setGroup('ColorColumn', s:none, s:none, s:darkscroll, s:none)
 " Conceal       placeholder characters substituted for concealed text (see 'conceallevel')
 call s:linkGroup('Conceal', 'Folded')
 " Cursor        the character under the cursor (default: bg and fg reversed)
-call s:setGroup('Cursor', s:none, s:none, s:reverse)
+call s:setGroup('Cursor', s:reverse, s:none, s:none, s:none)
 " CursorIM      like Cursor, but used when in IME mode |CursorIM|
 call s:linkGroup('CursorIM', 'Cursor')
 " CursorColumn  the screen column that the cursor is in when 'cursorcolumn' is set
@@ -114,40 +114,40 @@ call s:linkGroup('ExtraWhitespace', 'ColorColumn')
 " EndOfBuffer   filler lines (~) after the last line in the buffer.  By default, this is highlighted like |hl-NonText|.
 call s:linkGroup('EndOfBuffer', 'NonText')
 " ErrorMsg      error messages on the command line
-call s:setGroup('ErrorMsg', s:lightyellow, s:darkred, s:none)
+call s:setGroup('ErrorMsg', s:none, s:lightyellow, s:darkred, s:none)
 " VertSplit     the column separating vertically split windows
 call s:linkGroup('VertSplit', 'ModeMsg')
 " Folded        line used for closed folds
-call s:setGroup('Folded', s:darkblack, s:darkcyan, s:none)
+call s:setGroup('Folded', s:none, s:darkblack, s:darkcyan, s:none)
 " FoldColumn    'foldcolumn'
 call s:linkGroup('FoldColumn', 'Folded')
 " SignColumn    column where |signs| are displayed
 call s:linkGroup('SignColumn', 'LineNr')
 " IncSearch     'incsearch' highlighting; also used for the text replaced with ':s///c'
 " LineNr        Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
-call s:setGroup('LineNr', s:darkcyan, s:none, s:none)
+call s:setGroup('LineNr', s:none, s:darkcyan, s:none, s:none)
 " CursorLineNr  Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:linkGroup('CursorLineNr', 'LineNr')
 " MatchParen    The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-call s:setGroup('MatchParen', s:lightcyan, s:none, s:none)
+call s:setGroup('MatchParen', s:none, s:lightcyan, s:none, s:none)
 " ModeMsg       'showmode' message (e.g., '-- INSERT --')
-call s:setGroup('ModeMsg', s:lightwhite, s:none, s:none)
+call s:setGroup('ModeMsg', s:none, s:lightwhite, s:none, s:none)
 " MoreMsg       |more-prompt|
 call s:linkGroup('MoreMsg', 'ModeMsg')
 " NonText       '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line).
-call s:setGroup('NonText', s:darkcyan, s:none, s:none)
+call s:setGroup('NonText', s:none, s:darkcyan, s:none, s:none)
 " Normal        normal text; any text that matches no syntax pattern
-call s:setGroup('Normal', s:lightyellow, s:darkblue, s:none)
+call s:setGroup('Normal', s:none, s:lightyellow, s:darkblue, s:none)
 " Pmenu         Popup menu: normal item.
-call s:setGroup('Pmenu', s:darkblack, s:darkcyan, s:none)
+call s:setGroup('Pmenu', s:none, s:darkblack, s:darkcyan, s:none)
 " PmenuSel      Popup menu: selected item.
-call s:setGroup('PmenuSel', s:lightwhite, s:darkgreen, s:none)
+call s:setGroup('PmenuSel', s:none, s:lightwhite, s:darkgreen, s:none)
 " PmenuSbar     Popup menu: scrollbar.
-call s:setGroup('PmenuSbar', s:darkscroll, s:lightscroll, s:none)
+call s:setGroup('PmenuSbar', s:none, s:darkscroll, s:lightscroll, s:none)
 " PmenuThumb    Popup menu: Thumb of the scrollbar.
-call s:setGroup('PmenuThumb', s:lightscroll, s:darkscroll, s:none)
+call s:setGroup('PmenuThumb', s:none, s:lightscroll, s:darkscroll, s:none)
 " NormalFloat   Floating window: content
-call s:setGroup('NormalFloat', s:darkblack, s:darkcyan, s:none)
+call s:setGroup('NormalFloat', s:none, s:darkblack, s:darkcyan, s:none)
 " FloatBorder   Floating window: border
 call s:linkGroup('FloatBorder', 'NormalFloat')
 " Question      |hit-enter| prompt and yes/no questions
@@ -155,15 +155,15 @@ call s:linkGroup('Question', 'ModeMsg')
 " QuickFixLine  Current |quickfix| item in the quickfix window.
 " Search        Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 " SpecialKey    Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'.  Generally: text that is displayed differently from what it really is.
-call s:setGroup('SpecialKey', s:lightcyan, s:none, s:none)
+call s:setGroup('SpecialKey', s:none, s:none, s:none, s:lightcyan)
 " SpellBad      Word that is not recognized by the spellchecker. |spell| This will be combined with the highlighting used otherwise.
 " SpellCap      Word that should start with a capital. |spell| This will be combined with the highlighting used otherwise.
 " SpellLocal    Word that is recognized by the spellchecker as one that is used in another region. |spell| This will be combined with the highlighting used otherwise.
 " SpellRare     Word that is recognized by the spellchecker as one that is hardly ever used. |spell| This will be combined with the highlighting used otherwise.
 " StatusLine    status line of current window
-call s:setGroup('StatusLine', s:darkblack, s:darkgreen, s:none)
+call s:setGroup('StatusLine', s:none, s:darkblack, s:darkgreen, s:none)
 " StatusLineNC  status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
-call s:setGroup('StatusLineNC', s:darkblack, s:darkwhite, s:none)
+call s:setGroup('StatusLineNC', s:none, s:darkblack, s:darkwhite, s:none)
 " TabLine       tab pages line, not active tab page label
 call s:linkGroup('TabLine', 'StatusLineNC')
 " TabLineFill   tab pages line, where there are no labels
@@ -173,20 +173,20 @@ call s:linkGroup('TabLineSel', 'StatusLine')
 " Title         titles for output from ':set all', ':autocmd' etc; Affects the window counter per tab
 call s:linkGroup('Title', 'NormalTransparent')
 " Visual        Visual mode selection
-call s:setGroup('Visual', s:darkblue, s:darkwhite, s:none)
+call s:setGroup('Visual', s:none, s:darkblue, s:darkwhite, s:none)
 " VisualNOS     Visual mode selection when vim is 'Not Owning the Selection'.  Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
-call s:setGroup('VisualNOS', s:darkblue, s:lightblack, s:none)
+call s:setGroup('VisualNOS', s:none, s:darkblue, s:lightblack, s:none)
 " WarningMsg    warning messages
-call s:setGroup('WarningMsg', s:lightyellow, s:darkyellow, s:none)
+call s:setGroup('WarningMsg', s:none, s:lightyellow, s:darkyellow, s:none)
 " WildMenu      current match in 'wildmenu' completion
 " CIf0          TODO what does this mean
 
 " INFO Recommended group names for syntax highlighting (:help group-names)
 
 " Comment	         any comment
-call s:setGroup('Comment', s:darkwhite, s:none, s:none)
+call s:setGroup('Comment', s:none, s:darkwhite, s:none, s:none)
 " SpecialComment  special things inside a comment
-call s:setGroup('SpecialComment', s:lightwhite, s:none, s:none)
+call s:setGroup('SpecialComment', s:none, s:lightwhite, s:none, s:none)
 
 " String           a string constant: 'this is a string'
 call s:linkGroup('String', 'NormalTransparent')
@@ -203,7 +203,7 @@ call s:linkGroup('Float', 'NormalTransparent')
 call s:linkGroup('Identifier', 'NormalTransparent')
 
 " Statement       any statement
-call s:setGroup('Statement', s:lightwhite, s:none, s:none)
+call s:setGroup('Statement', s:none, s:lightwhite, s:none, s:none)
 " Function        function statement
 call s:linkGroup('Function', 'Statement')
 " Operator        'sizeof', '+', '*', etc.
@@ -223,7 +223,7 @@ call s:linkGroup('Exception', 'Keyword')
 call s:linkGroup('Paren', 'Statement')
 
 " Type            int, long, char, etc.
-call s:setGroup('Type', s:lightwhite, s:none, s:none)
+call s:setGroup('Type', s:none, s:lightwhite, s:none, s:none)
 " StorageClass    static, register, volatile, etc.
 call s:linkGroup('StorageClass', 'Type')
 " Structure       struct, union, enum, etc.
@@ -232,7 +232,7 @@ call s:linkGroup('Structure', 'Type')
 call s:linkGroup('Typedef', 'Type')
 
 " PreProc         generic Preprocessor
-call s:setGroup('PreProc', s:lightgreen, s:none, s:none)
+call s:setGroup('PreProc', s:none, s:lightgreen, s:none, s:none)
 " Include         preprocessor #include
 call s:linkGroup('Include', 'PreProc')
 " Define          preprocessor #define
@@ -243,7 +243,7 @@ call s:linkGroup('Macro', 'PreProc')
 call s:linkGroup('PreCondit', 'PreProc')
 
 " Special         any special symbol
-call s:setGroup('Special', s:lightcyan, s:none, s:none)
+call s:setGroup('Special', s:none, s:lightcyan, s:none, s:none)
 " SpecialChar     special character in a constant
 call s:linkGroup('SpecialChar', 'Special')
 " Tag             you can use CTRL-] on this
@@ -262,23 +262,23 @@ call s:linkGroup('Underlined', 'NormalTransparent')
 call s:linkGroup('Ignore', 'NormalTransparent')
 
 " Error           any erroneous construct
-call s:setGroup('Error', s:lightred, s:none, s:none)
+call s:setGroup('Error', s:none, s:lightred, s:none, s:none)
 
 " Todo            anything that needs extra attention; mostly the keywords TODO, FIXME and XXX
-call s:setGroup('Todo', s:lightorange, s:none, s:none)
+call s:setGroup('Todo', s:none, s:lightorange, s:none, s:none)
 
 " INFO Neovim diagnostic (https://neovim.io/doc/user/diagnostic.html#diagnostic-highlights)
 
-call s:setGroup('DiagnosticError', s:lightred, s:none, s:none)
-call s:setGroup('DiagnosticWarn', s:lightorange, s:none, s:none)
-call s:setGroup('DiagnosticInfo', s:lightyellow, s:none, s:none)
-call s:setGroup('DiagnosticHint', s:lightwhite, s:none, s:none)
-call s:setGroup('DiagnosticOk', s:lightgreen, s:none, s:none)
-call s:setGroup('DiagnosticVirtualTextError', s:darkred, s:none, s:none)
-call s:setGroup('DiagnosticVirtualTextWarn', s:darkorange, s:none, s:none)
-call s:setGroup('DiagnosticVirtualTextInfo', s:darkyellow, s:none, s:none)
-call s:setGroup('DiagnosticVirtualTextHint', s:darkwhite, s:none, s:none)
-call s:setGroup('DiagnosticVirtualTextOk', s:darkgreen, s:none, s:none)
+call s:setGroup('DiagnosticError', s:none, s:lightred, s:none, s:none)
+call s:setGroup('DiagnosticWarn', s:none, s:lightorange, s:none, s:none)
+call s:setGroup('DiagnosticInfo', s:none, s:lightyellow, s:none, s:none)
+call s:setGroup('DiagnosticHint', s:none, s:lightwhite, s:none, s:none)
+call s:setGroup('DiagnosticOk', s:none, s:lightgreen, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextError', s:none, s:darkred, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextWarn', s:none, s:darkorange, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextInfo', s:none, s:darkyellow, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextHint', s:none, s:darkwhite, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextOk', s:none, s:darkgreen, s:none, s:none)
 
 " INFO ale
 
@@ -334,7 +334,7 @@ call s:linkGroup('lspReference', 'MatchParen')
 
 " INFO NERDTree
 
-call s:setGroup('NERDTreeDir', s:lightcyan, s:darkblue, s:none)
+call s:setGroup('NERDTreeDir', s:none, s:lightcyan, s:darkblue, s:none)
 call s:linkGroup('NERDTreePart', 'NERDTreeDir')
 call s:linkGroup('NERDTreePartFile', 'NERDTreeDir')
 call s:linkGroup('NERDTreeExecFile', 'NERDTreeDir')
@@ -359,7 +359,7 @@ call s:linkGroup('NERDTreeRO', 'NERDTreeDir')
 call s:linkGroup('NERDTreeFlags', 'NERDTreeDir')
 call s:linkGroup('NERDTreeCurrentNode', 'NERDTreeDir')
 
-call s:setGroup('NERDTreeHelp', s:lightyellow, s:darkblue, s:none)
+call s:setGroup('NERDTreeHelp', s:none, s:lightyellow, s:darkblue, s:none)
 call s:linkGroup('NERDTreeHelpKey', 'NERDTreeHelp')
 call s:linkGroup('NERDTreeHelpCommand', 'NERDTreeHelp')
 call s:linkGroup('NERDTreeHelpTitle', 'NERDTreeHelp')
