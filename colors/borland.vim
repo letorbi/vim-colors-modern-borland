@@ -318,7 +318,7 @@ call s:linkGroup('ALEVirtualTextInfo', 'DiagnosticVirtualTextInfo')
 call s:linkGroup('ALEVirtualTextStyleError', 'DiagnosticVirtualTextError')
 call s:linkGroup('ALEVirtualTextStyleWarning', 'DiagnosticVirtualTextWarn')
 
-call s:linkGroup('ALESignColumnWithErrors', 'Pmenu')
+call s:linkGroup('ALESignColumnWithErrors', 'ColorColumn')
 call s:linkGroup('ALESignColumnWithoutErrors', 'SignColumn')
 
 " INFO vim-lsp
