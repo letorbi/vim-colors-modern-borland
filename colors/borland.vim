@@ -157,13 +157,13 @@ call s:linkGroup('Question', 'ModeMsg')
 " SpecialKey    Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'.  Generally: text that is displayed differently from what it really is.
 call s:setGroup('SpecialKey', s:none, s:none, s:none, s:lightcyan)
 " SpellBad      Word that is not recognized by the spellchecker. |spell| This will be combined with the highlighting used otherwise.
-call s:setGroup('SpellBad', s:undercurl, s:none, s:none, s:lightred)
+call s:linkGroup('SpellBad', 'DiagnosticUnderlineError')
 " SpellCap      Word that should start with a capital. |spell| This will be combined with the highlighting used otherwise.
-call s:setGroup('SpellCap', s:undercurl, s:none, s:none, s:lightorange)
+call s:linkGroup('SpellCap', 'DiagnosticUnderlineWarn')
 " SpellLocal    Word that is recognized by the spellchecker as one that is used in another region. |spell| This will be combined with the highlighting used otherwise.
-call s:setGroup('SpellLocal', s:undercurl, s:none, s:none, s:lightcyan)
+call s:linkGroup('SpellLocal', 'DiagnosticUnderlineInfo')
 " SpellRare     Word that is recognized by the spellchecker as one that is hardly ever used. |spell| This will be combined with the highlighting used otherwise.
-call s:setGroup('SpellRare', s:undercurl, s:none, s:none, s:lightgreen)
+call s:linkGroup('SpellRare', 'DiagnosticUnderlineHint')
 " StatusLine    status line of current window
 call s:setGroup('StatusLine', s:none, s:darkblack, s:darkgreen, s:none)
 " StatusLineNC  status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
@@ -275,14 +275,24 @@ call s:setGroup('Todo', s:none, s:lightorange, s:none, s:none)
 
 call s:setGroup('DiagnosticError', s:none, s:lightred, s:none, s:none)
 call s:setGroup('DiagnosticWarn', s:none, s:lightorange, s:none, s:none)
-call s:setGroup('DiagnosticInfo', s:none, s:lightyellow, s:none, s:none)
+call s:setGroup('DiagnosticInfo', s:none, s:lightcyan, s:none, s:none)
 call s:setGroup('DiagnosticHint', s:none, s:lightwhite, s:none, s:none)
 call s:setGroup('DiagnosticOk', s:none, s:lightgreen, s:none, s:none)
 call s:setGroup('DiagnosticVirtualTextError', s:none, s:darkred, s:none, s:none)
 call s:setGroup('DiagnosticVirtualTextWarn', s:none, s:darkorange, s:none, s:none)
-call s:setGroup('DiagnosticVirtualTextInfo', s:none, s:darkyellow, s:none, s:none)
+call s:setGroup('DiagnosticVirtualTextInfo', s:none, s:darkcyan, s:none, s:none)
 call s:setGroup('DiagnosticVirtualTextHint', s:none, s:darkwhite, s:none, s:none)
 call s:setGroup('DiagnosticVirtualTextOk', s:none, s:darkgreen, s:none, s:none)
+call s:setGroup('DiagnosticUnderlineError', s:undercurl, s:none, s:none, s:lightred)
+call s:setGroup('DiagnosticUnderlineWarn', s:undercurl, s:none, s:none, s:lightorange)
+call s:setGroup('DiagnosticUnderlineInfo', s:undercurl, s:none, s:none, s:lightcyan)
+call s:setGroup('DiagnosticUnderlineHint', s:undercurl, s:none, s:none, s:lightwhite)
+call s:setGroup('DiagnosticUnderlineOk', s:undercurl, s:none, s:none, s:lightgreen)
+call s:setGroup('DiagnosticSignError', s:none, s:darkblack, s:lightred, s:none)
+call s:setGroup('DiagnosticSignWarn', s:none, s:darkblack, s:lightorange, s:none)
+call s:setGroup('DiagnosticSignInfo', s:none, s:darkblack, s:lightcyan, s:none)
+call s:setGroup('DiagnosticSignHint', s:none, s:darkblack, s:lightwhite, s:none)
+call s:setGroup('DiagnosticSignOk', s:none, s:darkblack, s:lightgreen, s:none)
 
 " INFO ale
 
@@ -292,11 +302,11 @@ call s:linkGroup('ALEInfo', 'DiagnosticInfo')
 call s:linkGroup('ALEStyleError', 'DiagnosticError')
 call s:linkGroup('ALEStyleWarning', 'DiagnosticWarn')
 
-call s:linkGroup('ALEErrorSign', 'ErrorMsg')
-call s:linkGroup('ALEWarningSign', 'WarningMsg')
-call s:linkGroup('ALEInfoSign', 'Pmenu')
-call s:linkGroup('ALEStyleErrorSign', 'ErrorMsg')
-call s:linkGroup('ALEStyleWarningSign', 'WarningMsg')
+call s:linkGroup('ALEErrorSign', 'DiagnosticSignError')
+call s:linkGroup('ALEWarningSign', 'DiagnosticSignWarn')
+call s:linkGroup('ALEInfoSign', 'DiagnosticSignInfo')
+call s:linkGroup('ALEStyleErrorSign', 'DiagnosticSignError')
+call s:linkGroup('ALEStyleWarningSign', 'DiagnosticSignWarn')
 
 call s:linkGroup('ALEVirtualTextError', 'DiagnosticVirtualTextError')
 call s:linkGroup('ALEVirtualTextWarning', 'DiagnosticVirtualTextWarn')
@@ -320,10 +330,10 @@ call s:linkGroup('LspWarningVirtualText', 'DiagnosticVirtualTextWarn')
 call s:linkGroup('LspInformationVirtualText', 'DiagnosticVirtualTextInfo')
 call s:linkGroup('LspHintVirtualText', 'DiagnosticVirtualTextHint')
 
-call s:linkGroup('LspErrorHighlight', 'DiagnosticVirtualTextError')
-call s:linkGroup('LspWarningHighlight', 'DiagnosticVirtualTextWarn')
-call s:linkGroup('LspInformationHighlight', 'DiagnosticVirtualTextInfo')
-call s:linkGroup('LspHintHighlight', 'DiagnosticVirtualTextHint')
+call s:linkGroup('LspErrorHighlight', 'DiagnosticUnderlineError')
+call s:linkGroup('LspWarningHighlight', 'DiagnosticUnderlineWarn')
+call s:linkGroup('LspInformationHighlight', 'DiagnosticUnderlineInfo')
+call s:linkGroup('LspHintHighlight', 'DiagnosticUnderlineHint')
 
 call s:linkGroup('lspInlayHintsType', 'DiagnosticVirtualTextHint')
 call s:linkGroup('lspInlayHintsParameter', 'DiagnosticVirtualTextHint')
