@@ -34,7 +34,6 @@ if g:BorlandStyle ==# 'classic'
   let s:darkcyan = ['#00a8a8','DarkCyan']
   let s:darkblue = ['#0000a8','DarkBlue']
   let s:darkmagenta = ['#a800a8','DarkMagenta']
-  let s:darkscroll = ['#0038a8','DarkCyan']
   let s:lightblack = ['#575757','DarkGray']
   let s:lightwhite = ['#ffffff','White']
   let s:lightred = ['#ff5757','LightRed']
@@ -44,7 +43,10 @@ if g:BorlandStyle ==# 'classic'
   let s:lightcyan = ['#57ffff','LightCyan']
   let s:lightblue = ['#5757ff','LightBlue']
   let s:lightmagenta = ['#ff57ff','LightMagenta']
-  let s:lightscroll = ['#0070a8','LightCyan']
+
+  let s:darkscroll = ['#002aa8','DarkCyan'] " 75% darkblue 25% darkcyan
+  let s:midscroll = ['#0054a8','DarkCyan'] " 50% darkblue 50% darkcyan
+  let s:lightscroll = ['#007ea8','LightCyan'] " 25% darkblue 75% darkcyan
 else
   let s:darkblack = ['#000000','Black']
   let s:darkwhite = ['#a8a8a8','LightGray']
@@ -55,7 +57,6 @@ else
   let s:darkcyan = ['#00a8a8','DarkCyan']
   let s:darkblue = ['#003078','DarkBlue']
   let s:darkmagenta = ['#a800a8','DarkMagenta']
-  let s:darkscroll = ['#004078','DarkCyan']
   let s:lightblack = ['#575757','DarkGray']
   let s:lightwhite = ['#ffffff','White']
   let s:lightred = ['#ff5757','LightRed']
@@ -65,7 +66,10 @@ else
   let s:lightcyan = ['#57ffff','LightCyan']
   let s:lightblue = ['#5757ff','LightBlue']
   let s:lightmagenta = ['#ff57ff','LightMagenta']
-  let s:lightscroll = ['#006078','LightCyan']
+
+  let s:darkscroll = ['#004e84','DarkCyan'] " 75% darkblue 25% darkcyan
+  let s:midscroll = ['#006c90','DarkCyan'] " 50% darkblue 50% darkcyan
+  let s:lightscroll = ['#008a9c','LightCyan'] " 25% darkblue 75% darkcyan
 endif
 
 let s:none = ['NONE', 'NONE']
@@ -143,9 +147,9 @@ call s:setGroup('Pmenu', s:none, s:darkblack, s:darkcyan, s:none)
 " PmenuSel      Popup menu: selected item.
 call s:setGroup('PmenuSel', s:none, s:lightwhite, s:darkgreen, s:none)
 " PmenuSbar     Popup menu: scrollbar.
-call s:setGroup('PmenuSbar', s:none, s:darkscroll, s:lightscroll, s:none)
+call s:setGroup('PmenuSbar', s:none, s:lightscroll, s:midscroll, s:none)
 " PmenuThumb    Popup menu: Thumb of the scrollbar.
-call s:setGroup('PmenuThumb', s:none, s:lightscroll, s:darkscroll, s:none)
+call s:setGroup('PmenuThumb', s:none, s:midscroll, s:lightscroll, s:none)
 " NormalFloat   Floating window: content
 call s:setGroup('NormalFloat', s:none, s:darkblack, s:darkcyan, s:none)
 " FloatBorder   Floating window: border
