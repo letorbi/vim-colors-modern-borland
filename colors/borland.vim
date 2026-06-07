@@ -79,8 +79,11 @@ let s:undercurl = ['undercurl', 'underline']
 let s:reverse = ['reverse', 'reverse']
 
 function! s:setGroup(name, style, foreground, background, special)
-  exe 'hi! '.a:name.' guifg='.a:foreground[0].' guibg='.a:background[0].' guisp='.a:special[0].' gui='.a:style[0]
-  exe 'hi! '.a:name.' ctermfg='.a:foreground[1].' ctermbg='.a:background[1].' ctermul='.a:special[1].' cterm='.a:style[1]
+  exe 'hi! '.a:name.' gui='.a:style[0].' guifg='.a:foreground[0].' guibg='.a:background[0].' guisp='.a:special[0]
+  exe 'hi! '.a:name.' cterm='.a:style[1].' ctermfg='.a:foreground[1].' ctermbg='.a:background[1]
+  if !has('nvim')
+    exe 'hi! '.a:name.' ctermul='.a:special[1]
+  endif
   exe 'hi! '.a:name.' term='.a:style[1]
 endf
 
