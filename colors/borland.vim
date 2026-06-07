@@ -303,11 +303,11 @@ call s:setGroup('DiagnosticSignOk', s:none, s:darkblack, s:lightgreen, s:none)
 
 " INFO ale
 
-call s:linkGroup('ALEError', 'DiagnosticError')
-call s:linkGroup('ALEWarning', 'DiagnosticWarn')
-call s:linkGroup('ALEInfo', 'DiagnosticInfo')
-call s:linkGroup('ALEStyleError', 'DiagnosticError')
-call s:linkGroup('ALEStyleWarning', 'DiagnosticWarn')
+call s:linkGroup('ALEError', 'DiagnosticUnderlineError')
+call s:linkGroup('ALEWarning', 'DiagnosticUnderlineWarn')
+call s:linkGroup('ALEInfo', 'DiagnosticUnderlineInfo')
+call s:linkGroup('ALEStyleError', 'DiagnosticUnderlineError')
+call s:linkGroup('ALEStyleWarning', 'DiagnosticUnderlineWarn')
 
 call s:linkGroup('ALEErrorSign', 'DiagnosticSignError')
 call s:linkGroup('ALEWarningSign', 'DiagnosticSignWarn')
