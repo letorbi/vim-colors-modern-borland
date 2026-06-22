@@ -1,6 +1,6 @@
 # Modern Borland colour scheme for Vim
 
-The Modern Borland colour scheme for [Vim](https://www.vim.org/) is a tribute to the classic Turbo Pascal & Turbo C++ IDEs developed by Borland International Inc. in the early 1990'ties. It mimics the look of the interface and the syntax highlighting. Modern Borland is not related to the [Borland colorscheme](https://www.vim.org/scripts/script.php?script_id=92) that often ships with Vim.
+The Modern Borland colour scheme for [Vim](https://www.vim.org/) is a tribute to the classic Turbo Pascal & Turbo C++ IDEs developed by Borland International Inc. in the early 1990'ties. It mimics the look of the interface and the syntax highlighting. Modern Borland is not related to the [Borland colour scheme](https://www.vim.org/scripts/script.php?script_id=92) that often ships with Vim.
 
 Modern Borland offers two style variants. The *modern style* (default) has some colours changed slightly to make the code easier to read and to give the scheme also a more modern look. On the other hand the *classic style* uses exactly the same colours as the original IDE.
 
@@ -10,19 +10,21 @@ Modern Borland offers two style variants. The *modern style* (default) has some 
 
 ## Installation
 
-The Modern Borland colour scheme can be easily installed via a plugin-manager like [Plug](https://github.com/junegunn/vim-plug/) or [Vundle](https://github.com/VundleVim/Vundle.vim/). Just add the address of the GitHub repo to your list of plugins:
+The Modern Borland colour scheme can be easily installed via a plug-in-manager like [Plug](https://github.com/junegunn/vim-plug/) or [Vundle](https://github.com/VundleVim/Vundle.vim/). Just add the address of the GitHub repo to your list of plug-ins:
 
   * **Plug:** `Plug 'letorbi/vim-colors-modern-borland'`
   * **Vundle:** `Plugin 'letorbi/vim-colors-modern-borland'`
 
-Some might want to use Vim's native plugin-management or [Pathogen](https://github.com/tpope/vim-pathogen/) instead. In that case you just have to clone the repository into the appropriate path in your Vim config-directory:
+Some might want to use Vim's native plug-in-management or [Pathogen](https://github.com/tpope/vim-pathogen/) instead. In that case you just have to clone the repository into the appropriate path in your Vim config-directory:
 
     git clone https://github.com/letorbi/vim-colors-modern-borland ~/.vim/pack/github/start/vim-colors-modern-borland
 
-If you don't want to use a plugin-manager at all, you can simply clone the repository and copy the file *colors/borland.vim* into your Vim config-directory:
+If you don't want to use a plug-in-manager at all, you can simply clone the repository and copy the file *colors/borland.vim* into your Vim config-directory:
 
     git clone https://github.com/letorbi/vim-colors-modern-borland /tmp/vim-colors-modern-borland
     cp /tmp/vim-colors-modern-borland/colors/borland.vim ~/.vim/colors/borland.vim
+
+Once you have installed the colour scheme, activate it by adding `colorscheme modern-borland` to your vimrc.
 
 ## Options
 
